@@ -30,6 +30,8 @@ opensafely/worms/2020-07-10
 opensafely/covid-identification-in-primary-care-probable-covid-clinical-code/2020-07-16
 opensafely/covid-identification-in-primary-care-probable-covid-positive-test/2020-07-16
 opensafely/covid-identification-in-primary-care-probable-covid-sequelae/2020-07-16
+opensafely/covid-identification-in-primary-care-suspected-covid-had-test/2020-07-16
+opensafely/covid-identification-in-primary-care-antigen-test-negative/2020-06-24
 opensafely/dialysis/2020-07-16
 opensafely/kidney-transplant/2020-07-15
 opensafely/other-organ-transplant/2020-07-15

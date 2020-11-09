@@ -29,6 +29,18 @@ covid_identification_in_primary_care_case_codes_seq = codelist_from_csv(
     column="CTV3ID",
 )
 
+covid_identification_in_primary_care_case_codes_anytest = codelist_from_csv(
+    "codelists/opensafely-covid-identification-in-primary-care-suspected-covid-had-test.csv",
+    system="ctv3",
+    column="CTV3ID",
+)
+
+covid_identification_in_primary_care_case_codes_negtest = codelist_from_csv(
+    "codelists/opensafely-covid-identification-in-primary-care-antigen-test-negative.csv",
+    system="ctv3",
+    column="CTV3ID",
+)
+
 worms_codes = codelist_from_csv(
     "codelists/opensafely-worms.csv",
     system="ctv3",
