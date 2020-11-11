@@ -80,8 +80,11 @@ foreach var of varlist `r(varlist)' {
 	format `var' %td
 	
 	*Week of year
-	datacheck inlist(year(`var'),2020,.), nolist
+	gen `var'_eflag=1 if !inlist(year(`var'),2020,.)
 	gen `var'_week=week(`var') if year(`var')==2020
+	
+	* XXX Year_flag indicates error in dates XXX
+	tab `var'_eflag, m
 		
 }
 
