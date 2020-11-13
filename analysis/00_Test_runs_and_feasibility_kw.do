@@ -12,21 +12,23 @@ OTHER OUTPUT: 			logfile
 ==============================================================================*/
 
 /* === Housekeeping === */
-
+/*handled in model.do
 global outdir  	  "output"
 global logdir     "log"
 global tempdir    "tempdata"
+*/
+
 
 * Open a log file
 cap log close
-*log using $logdir/00_Test_runs_and_feasibility, replace t
-log using "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\logs\test_log", replace t
+log using $logdir/00_Test_runs_and_feasibility, replace t
+*log using "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\logs\test_log", replace t
 
 * Import dataset into STATA
-*import delimited "output/input.csv", clear
+import delimited "output/input.csv", clear
 
-cd C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research
-import delimited output/input.csv, clear
+*cd C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research
+*import delimited output/input.csv, clear
 
 * Keep test variables
 keep patient_id age sgss_covid_test_ever* covid_anytest* covid_negtest covid_tpp_probable
@@ -80,9 +82,11 @@ foreach var of varlist `r(varlist)' {
 	format `var' %td
 	
 	*Week of year
-	datacheck inlist(year(`var'),2020,.), nolist
+	gen `var'_eflag=1 if !inlist(year(`var'),2020,.)
 	gen `var'_week=week(`var') if year(`var')==2020
-		
+	
+	* XXX Year_flag indicates error in dates XXX
+	tab `var'_eflag, m
 }
 
 
@@ -95,8 +99,8 @@ preserve
 
 	gen count=1 if covid_tpp_probable !=.
 	collapse (count) count, by(agegroup covid_tpp_probable_week)
-	export excel using "C:\Users\EIDEDGRI\Filr\My Files\OpenSafely\Non-specific immunity\Outputs\tpp_count.xlsx", first(var) replace
-
+	*export excel using "C:\Users\EIDEDGRI\Filr\My Files\OpenSafely\Non-specific immunity\Outputs\tpp_count.xlsx", first(var) replace
+	export excel using $outdir\tpp_count.xlsx, first(var) replace
 restore
 
 * ##### COVID antigen negative tests #####
@@ -106,8 +110,8 @@ preserve
 
 	gen count=1 if covid_negtest !=.
 	collapse (count) count, by(agegroup covid_negtest_week)
-	export excel using "C:\Users\EIDEDGRI\Filr\My Files\OpenSafely\Non-specific immunity\Outputs\negtest_count.xlsx", first(var) replace
-
+	*export excel using "C:\Users\EIDEDGRI\Filr\My Files\OpenSafely\Non-specific immunity\Outputs\negtest_count.xlsx", first(var) replace
+	export excel using $outdir\negtest_count.xlsx, first(var) replace
 restore
 
 * ##### COVID first anytest #####
@@ -117,8 +121,8 @@ preserve
 
 	gen count=1 if covid_anytest_first !=.
 	collapse (count) count, by(agegroup covid_anytest_first_week)
-	export excel using "C:\Users\EIDEDGRI\Filr\My Files\OpenSafely\Non-specific immunity\Outputs\anytest_first_count.xlsx", first(var) replace
-
+	*export excel using "C:\Users\EIDEDGRI\Filr\My Files\OpenSafely\Non-specific immunity\Outputs\anytest_first_count.xlsx", first(var) replace
+	export excel using $outdir\anytest_first_count.xlsx, first(var) replace
 restore
 
 * ##### COVID last anytest #####
@@ -128,9 +132,12 @@ preserve
 
 	gen count=1 if covid_anytest_last !=.
 	collapse (count) count, by(agegroup covid_anytest_last_week)
-	export excel using "C:\Users\EIDEDGRI\Filr\My Files\OpenSafely\Non-specific immunity\Outputs\anytest_last_count.xlsx", first(var) replace
-
+	*export excel using "C:\Users\EIDEDGRI\Filr\My Files\OpenSafely\Non-specific immunity\Outputs\anytest_last_count.xlsx", first(var) replace
+	export excel using $outdir\anytest_last_count.xlsx, first(var) replace
 restore
 
 
 log close
+
+
+
