@@ -87,6 +87,10 @@ foreach var of varlist `r(varlist)' {
 	
 	* XXX Year_flag indicates error in dates XXX
 	tab `var'_eflag, m
+<<<<<<< HEAD:analysis/00_Test_runs_and_feasibility_kw.do
+=======
+		
+>>>>>>> 6d89d32dd9d4f002b628c8d212128fc4fc9e621e:analysis/00_Test_runs_and_feasibility.do
 }
 
 
