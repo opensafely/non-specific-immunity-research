@@ -97,61 +97,83 @@ study = StudyDefinition(
         },
     ),
 
-   positive_covid_test_ever=patients.with_test_result_in_sgss(
-        pathogen="SARS-CoV-2",
-        test_result="positive",
-        return_expectations={"incidence": 0.1},
-    ),
+   # COVID TESTS
+#   positive_covid_test_ever=patients.with_test_result_in_sgss(
+#        pathogen="SARS-CoV-2",
+#        test_result="positive",
+#        return_expectations={"incidence": 0.1},
+#    ),
 
-   sgss_covid_test_ever=patients.with_test_result_in_sgss(
-        pathogen="SARS-CoV-2",
-        test_result="any",
-        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence": 0.2},
-    ),
+#   sgss_covid_test_ever=patients.with_test_result_in_sgss(
+#        pathogen="SARS-CoV-2",
+#        test_result="any",
+#        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence": 0.2},
+#    ),
 
-   sgss_covid_test_ever_date=patients.date_of(
-        "sgss_covid_test_ever",
-        date_format="YYYY-MM-DD",
-        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
-    ),
+#   sgss_covid_test_ever_date=patients.date_of(
+#        "sgss_covid_test_ever",
+#        date_format="YYYY-MM-DD",
+#        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
+#    ),
 
-   covid_anytest=patients.with_these_clinical_events(
-                        covid_identification_in_primary_care_case_codes_anytest,
-        return_first_date_in_period=False,
+#   covid_anytest=patients.with_these_clinical_events(
+#                        covid_identification_in_primary_care_case_codes_anytest,
+#        return_first_date_in_period=False,
+#        include_day=True,
+#        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
+#    ), 
+
+#   covid_anytest_first=patients.with_these_clinical_events(
+#                        covid_identification_in_primary_care_case_codes_anytest,
+#        return_first_date_in_period=True,
+#        include_day=True,
+#        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
+#    ),
+
+#   covid_anytest_last=patients.with_these_clinical_events(
+#                        covid_identification_in_primary_care_case_codes_anytest,
+#        return_last_date_in_period=True,
+#        include_day=True,
+#        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
+#    ), 
+
+#   covid_anytest_count=patients.with_these_clinical_events(
+#                        covid_identification_in_primary_care_case_codes_anytest,
+#        between=["2020-08-01", "2020-10-31"],
+#        returning="number_of_matches_in_period",
+#        return_expectations={"incidence" : 0.6,
+#                             "int": {"distribution": "normal",
+#                                     "mean": 2, "stddev": 1
+#                                    }
+#                            },
+#    ), 
+
+# REPEATED COVID NEGATIVE TESTS
+   covid_negtest_first=patients.with_these_clinical_events(
+                        covid_identification_in_primary_care_case_codes_negtest,
+        on_or_after="2020-02-01",
+        return_first_date_in_period=True,
         include_day=True,
         return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
     ), 
 
-   covid_anytest_first=patients.with_these_clinical_events(
-                        covid_identification_in_primary_care_case_codes_anytest,
-        return_first_date_in_period=True,
-        include_day=True,
-        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
-    ),
-
-   covid_anytest_last=patients.with_these_clinical_events(
-                        covid_identification_in_primary_care_case_codes_anytest,
+   covid_negtest_last=patients.with_these_clinical_events(
+                        covid_identification_in_primary_care_case_codes_negtest,
+        on_or_after="2020-02-01",
         return_last_date_in_period=True,
         include_day=True,
         return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
     ), 
 
-   covid_anytest_count=patients.with_these_clinical_events(
-                        covid_identification_in_primary_care_case_codes_anytest,
-        between=["2020-08-01", "2020-10-31"],
+   covid_negtest_count=patients.with_these_clinical_events(
+                        covid_identification_in_primary_care_case_codes_negtest,
+        between=["2020-02-01", "2020-12-31"],
         returning="number_of_matches_in_period",
         return_expectations={"incidence" : 0.6,
                              "int": {"distribution": "normal",
                                      "mean": 2, "stddev": 1
                                     }
                             },
-    ), 
-
-   covid_negtest=patients.with_these_clinical_events(
-                        covid_identification_in_primary_care_case_codes_negtest,
-        return_first_date_in_period=True,
-        include_day=True,
-        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
     ), 
 
     ## DEMOGRAPHIC COVARIATES
