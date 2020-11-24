@@ -15,7 +15,9 @@ OTHER OUTPUT: 			logfile
 * Open a log file
 cap log close
 *log using $logdir/00_Test_runs_and_feasibility, replace t
-*log using "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\logs\test_log", replace t
+log using "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\logs\test_log", replace t
+
+set linesize 150
 
 cd C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research
 
@@ -87,29 +89,37 @@ drop *_eflag
 	replace has_neg=1 if covid_negtest_first !=.
 
 	tab agegroup has_neg, row
-	summ covid_negtest_count if has_neg==1, d
+	summ covid_negtest_count if has_neg==1, d	// number of negative tests
+	bysort agegroup: summ covid_negtest_count if has_neg==1, d
 
 * #### Negative test followed by a positive ####
 	gen neg_pos=0 if has_neg==1
 	gen pos_neg=neg_pos
 
-	summ covid_negtest_count if has_neg==1, d	// number of negative tests
-	bysort agegroup: summ covid_negtest_count if has_neg==1, d
-
 	replace neg_pos=1 if has_neg==1 & covid_tpp_probable != . & covid_tpp_probable > covid_negtest_last
-	replace pos_neg=1 if has_neg==1 & covid_negtest_last != . & covid_negtest_last > covid_tpp_probable
+	replace pos_neg=1 if has_neg==1 & covid_negtest_last > covid_tpp_probable
+	
+	tab neg_pos
+	tab pos_neg
 
+* Time from negative to positive (days)
 	gen time_neg_pos=covid_tpp_probable-covid_negtest_last if neg_pos==1
-
+	summ time_neg_pos if neg_pos==1, d
+	
+* Negative to positive by agegroup
 	tab agegroup neg_pos, row	// negative test with following covid diagnosis
 	bysort agegroup: summ time_neg_pos if neg_pos==1, d	// time from negative to diagnosis
 
 	tab agegroup pos_neg, row	// covid diagnoses with negative test after -
-								// indicates need for repeated negative test variables
+								// indicates taking last negative insufficient
 								
 * Distribution of neg_pos pair timings
-	histogram covid_negtest_last_week if neg_pos==1, kden name(negtest)
-	histogram covid_tpp_probable_week if neg_pos==1, kden name(covid_tpp)
+	histogram covid_negtest_last_week if neg_pos==1, freq kden name(negtest)
+	histogram covid_tpp_probable_week if neg_pos==1, freq kden name(covid_tpp)
+
+	
+/* === Covid positives by negative test and agegroup over time === */
+	bysort has_neg: table covid_tpp_probable_week agegroup if covid_tpp_probable_week > 15, contents(count covid_tpp_probable) row col
 
 
 /* === Outcomes following negative test === */
@@ -124,20 +134,49 @@ drop *_eflag
 
 	bysort agegroup: summ time_neg_icu if neg_icu==1, d	// time from negative to icu
 	
+	table covid_icu_date_week agegroup if has_neg==1 & covid_icu_date_week > 15, contents(count covid_icu_date) row col
+	
 	
 * Death
 	gen neg_died=0 if has_neg==1
 	replace neg_died=1 if has_neg==1 & died_date_ons !=.
+	
+	gen neg_cdied=0 if has_neg==1
+	replace neg_cdied=1 if neg_died==1 & died_ons_covid_flag_any==1
 
+	tab neg_died
+	tab neg_cdied
 	tab agegroup neg_died, row
+	tab agegroup neg_cdied, row
 
 	gen time_neg_died=died_date_ons-covid_negtest_last if neg_died==1
-
+	
+	summ time_neg_died if neg_died==1, d
 	bysort agegroup: summ time_neg_died if neg_died==1, d	// time from negative to death
 
 	
-/* === Covid positives by agegroup overtime === */
-	bysort has_neg: table covid_tpp_probable_week agegroup if covid_tpp_probable_week > 15, contents(count covid_tpp_probable) row col
+/* === Outcomes general pop === */
+
+* ICU admission
+	gen gen_icu=0 if has_neg==0
+	replace gen_icu=1 if covid_icu_date !=. & has_neg==0
+	
+	tab gen_icu
+	tab agegroup gen_icu, row
+	
+	table covid_icu_date_week agegroup if has_neg==0 & covid_icu_date_week > 15, contents(count covid_icu_date) row col
+
+* Death
+	gen gen_died=0 if has_neg==0
+	replace gen_died=1 if died_date_ons !=. & has_neg==0
+	
+	gen gen_cdied=0 if has_neg==0
+	replace gen_cdied=1 if gen_died==1 & died_ons_covid_flag_any==1
+	
+	tab gen_died
+	tab gen_cdied
+	tab agegroup gen_died, row
+	tab agegroup gen_cdied, row
 
 
 log close
