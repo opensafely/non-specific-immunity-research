@@ -17,7 +17,7 @@ cap log close
 *log using $logdir/00_Test_runs_and_feasibility, replace t
 *log using "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\logs\test_log", replace t
 
-log using ./analysis/logfiles/00_Test_runs_and_feasibility, replace t
+log using ./logs/00_Test_runs_and_feasibility, replace t
 
 set linesize 150
 
@@ -119,10 +119,10 @@ drop *_eflag
 								
 * Distribution of neg_pos pair timings
 	histogram covid_negtest_last_week if neg_pos==1, freq kden name(negtest)
-	graph save negtest ./analysis/outfiles/00_negtests_by_week.gph
+	graph save negtest ./output/00_negtests_by_week.gph
 	
 	histogram covid_tpp_probable_week if neg_pos==1, freq kden name(covid_tpp)
-	graph save covid_tpp ./analysis/outfiles/00_tpp_pos_by_week.gph
+	graph save covid_tpp ./output/00_tpp_pos_by_week.gph
 	
 /* === Covid positives by negative test and agegroup over time === */
 	bysort has_neg: table covid_tpp_probable_week agegroup if covid_tpp_probable_week > 15, contents(count covid_tpp_probable) row col
