@@ -25,16 +25,16 @@ study = StudyDefinition(
 
    # STUDY POPULATION
     population=patients.registered_with_one_practice_between(
-        "2019-11-01", "2020-02-01"
+        "2019-06-01", "2020-06-01"
     ),
 
     dereg_date=patients.date_deregistered_from_all_supported_practices(
-        on_or_after="2020-02-01", date_format="YYYY-MM",
+        on_or_after="2020-06-01", date_format="YYYY-MM",
     ),
 
     # FOLLOW UP
     has_12_m_follow_up=patients.registered_with_one_practice_between(
-        "2019-02-01", "2020-01-31", ### 12 months prior to 1st Feb 2020
+        "2019-06-01", "2020-05-31", ### 12 months prior to 1st Feb 2020
         return_expectations={
             "incidence" : 0.95,
         }
@@ -97,6 +97,274 @@ study = StudyDefinition(
         },
     ),
 
+    # EXPOSURES
+    lrti_in_period=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-06-06", "2020-12-01"],
+        returning="number_of_matches_in_period",
+        return_expectations={"int": {"distribution": "normal", "mean": 2, "stddev": 1}, "incidence": 0.2},
+    ),    
+
+    lrti_0906=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-06-06", "2020-09-06"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-06-06", "latest": "2020-09-06"}, "incidence" : 0.1},
+    ),    
+
+    lrti_0913=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-09-07", "2020-09-13"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-09-07", "latest": "2020-09-13"}, "incidence" : 0.03},
+    ),   
+
+    lrti_0920=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-09-14", "2020-09-20"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-09-14", "latest": "2020-09-20"}, "incidence" : 0.03},
+    ),   
+
+    lrti_0927=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-09-21", "2020-09-27"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-09-21", "latest": "2020-09-27"}, "incidence" : 0.03},
+    ),   
+
+    lrti_1004=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-09-28", "2020-10-04"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-09-28", "latest": "2020-10-04"}, "incidence" : 0.03},
+    ),   
+
+    lrti_1011=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-10-05", "2020-10-11"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-10-05", "latest": "2020-10-11"}, "incidence" : 0.03},
+    ),   
+
+    lrti_1018=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-10-12", "2020-10-18"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-10-12", "latest": "2020-10-18"}, "incidence" : 0.03},
+    ),   
+
+    lrti_1025=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-10-19", "2020-10-25"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-10-19", "latest": "2020-10-25"}, "incidence" : 0.03},
+    ),   
+
+    lrti_1101=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-10-26", "2020-11-01"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-10-26", "latest": "2020-11-01"}, "incidence" : 0.03},
+    ),  
+
+    lrti_1108=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-11-02", "2020-11-08"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-11-02", "latest": "2020-11-08"}, "incidence" : 0.03},
+    ),  
+
+    lrti_1115=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-11-09", "2020-11-15"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-11-09", "latest": "2020-11-15"}, "incidence" : 0.03},
+    ),  
+
+    lrti_1122=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-11-16", "2020-11-22"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-11-16", "latest": "2020-11-22"}, "incidence" : 0.03},
+    ),  
+
+    lrti_1129=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-11-23", "2020-11-29"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-11-23", "latest": "2020-11-29"}, "incidence" : 0.03},
+    ),  
+
+    lrti_1206=patients.with_these_clinical_events(
+        lrti_codes,
+        between=["2020-11-30", "2020-12-06"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-11-30", "latest": "2020-12-06"}, "incidence" : 0.03},
+    ),  
+
+
+    c_lrti_in_period=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-06-06", "2020-12-01"],
+        returning="number_of_matches_in_period",
+        return_expectations={"int": {"distribution": "normal", "mean": 2, "stddev": 1}, "incidence": 0.2},
+    ),    
+
+    c_lrti_0906=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-06-06", "2020-09-06"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-06-06", "latest": "2020-09-06"}, "incidence" : 0.1},
+    ),    
+
+    c_lrti_0913=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-09-07", "2020-09-13"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-09-07", "latest": "2020-09-13"}, "incidence" : 0.03},
+    ),   
+
+    c_lrti_0920=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-09-14", "2020-09-20"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-09-14", "latest": "2020-09-20"}, "incidence" : 0.03},
+    ),   
+
+    c_lrti_0927=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-09-21", "2020-09-27"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-09-21", "latest": "2020-09-27"}, "incidence" : 0.03},
+    ),   
+
+    c_lrti_1004=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-09-28", "2020-10-04"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-09-28", "latest": "2020-10-04"}, "incidence" : 0.03},
+    ),   
+
+    c_lrti_1011=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-10-05", "2020-10-11"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-10-05", "latest": "2020-10-11"}, "incidence" : 0.03},
+    ),   
+
+    c_lrti_1018=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-10-12", "2020-10-18"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-10-12", "latest": "2020-10-18"}, "incidence" : 0.03},
+    ),   
+
+    c_lrti_1025=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-10-19", "2020-10-25"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-10-19", "latest": "2020-10-25"}, "incidence" : 0.03},
+    ),   
+
+    c_lrti_1101=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-10-26", "2020-11-01"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-10-26", "latest": "2020-11-01"}, "incidence" : 0.03},
+    ),  
+
+    c_lrti_1108=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-11-02", "2020-11-08"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-11-02", "latest": "2020-11-08"}, "incidence" : 0.03},
+    ),  
+
+    c_lrti_1115=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-11-09", "2020-11-15"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-11-09", "latest": "2020-11-15"}, "incidence" : 0.03},
+    ),  
+
+    c_lrti_1122=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-11-16", "2020-11-22"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-11-16", "latest": "2020-11-22"}, "incidence" : 0.03},
+    ),  
+
+    c_lrti_1129=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-11-23", "2020-11-29"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-11-23", "latest": "2020-11-29"}, "incidence" : 0.03},
+    ),  
+
+    c_lrti_1206=patients.with_these_clinical_events(
+        copd_lrti_codes,
+        between=["2020-11-30", "2020-12-06"],
+        returning="date",
+        find_last_match_in_period=True,
+        date_format="YYYY-MM-DD",
+        return_expectations={"date": {"earliest": "2020-11-30", "latest": "2020-12-06"}, "incidence" : 0.03},
+    ),  
+
    # COVID TESTS
 #   positive_covid_test_ever=patients.with_test_result_in_sgss(
 #        pathogen="SARS-CoV-2",
@@ -148,33 +416,33 @@ study = StudyDefinition(
 #                            },
 #    ), 
 
-# REPEATED COVID NEGATIVE TESTS
-   covid_negtest_first=patients.with_these_clinical_events(
-                        covid_identification_in_primary_care_case_codes_negtest,
-        on_or_after="2020-02-01",
-        return_first_date_in_period=True,
-        include_day=True,
-        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
-    ), 
+    # REPEATED COVID NEGATIVE TESTS
+#   covid_negtest_first=patients.with_these_clinical_events(
+#                        covid_identification_in_primary_care_case_codes_negtest,
+#        on_or_after="2020-02-01",
+#        return_first_date_in_period=True,
+#        include_day=True,
+#        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
+#    ), 
 
-   covid_negtest_last=patients.with_these_clinical_events(
-                        covid_identification_in_primary_care_case_codes_negtest,
-        on_or_after="2020-02-01",
-        return_last_date_in_period=True,
-        include_day=True,
-        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
-    ), 
+#   covid_negtest_last=patients.with_these_clinical_events(
+#                        covid_identification_in_primary_care_case_codes_negtest,
+#        on_or_after="2020-02-01",
+#        return_last_date_in_period=True,
+#        include_day=True,
+#        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
+#    ), 
 
-   covid_negtest_count=patients.with_these_clinical_events(
-                        covid_identification_in_primary_care_case_codes_negtest,
-        between=["2020-02-01", "2020-12-31"],
-        returning="number_of_matches_in_period",
-        return_expectations={"incidence" : 0.6,
-                             "int": {"distribution": "normal",
-                                     "mean": 2, "stddev": 1
-                                    }
-                            },
-    ), 
+#   covid_negtest_count=patients.with_these_clinical_events(
+#                        covid_identification_in_primary_care_case_codes_negtest,
+#        between=["2020-02-01", "2020-12-31"],
+#        returning="number_of_matches_in_period",
+#        return_expectations={"incidence" : 0.6,
+#                             "int": {"distribution": "normal",
+#                                     "mean": 2, "stddev": 1
+#                                    }
+#                            },
+#    ), 
 
     ## DEMOGRAPHIC COVARIATES
     # AGE

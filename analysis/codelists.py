@@ -47,6 +47,19 @@ worms_codes = codelist_from_csv(
     column="CTV3ID",
 )
 
+# EXPOSURES CODELISTS
+lrti_codes = codelist_from_csv(
+    "codelists/opensafely-lower-respiratory-tract-infection.csv",
+    system="ctv3",
+    column="CTV3ID",
+)
+
+copd_lrti_codes = codelist_from_csv(
+    "codelists/opensafely-copd-infection.csv",
+    system="ctv3",
+    column="CTV3ID",
+)
+
 # DEMOGRAPHIC CODELIST
 ethnicity_codes = codelist_from_csv(
     "codelists/opensafely-ethnicity.csv",

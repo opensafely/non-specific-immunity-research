@@ -16,8 +16,7 @@ actions:
     outputs:
       moderately_sensitive:
         log: logs/00_Test_runs_and_feasibility.log
-        figure1: output/00_negtests_by_week.gph
-        figure2: output/00_tpp_pos_by_week.gph
+        figure1: output/00_c_lrti_week.svg
 
   run_all:
     needs: [feasibility]
