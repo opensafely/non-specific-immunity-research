@@ -1,26 +1,25 @@
-version: '3.0'
+version: "3.0"
 
 expectations:
-  population_size: 1000
+  population_size: 10000
 
 actions:
-
-  generate_cohorts:
+  generate_cohort:
     run: cohortextractor:latest generate_cohort --study-definition study_definition
     outputs:
       highly_sensitive:
         cohort: output/input.csv
 
-  run_model:
-    run: stata-mp:latest analysis/model.do
-    needs: [generate_cohorts]
+  feasibility:
+    run: stata-mp:latest analysis/00_Test_runs_and_feasibility.do
+    needs: [generate_cohort]
     outputs:
       moderately_sensitive:
-        log: logs/model.log
+        log: logs/00_Test_runs_and_feasibility.log
+        figure1: output/00_c_lrti_week.svg
 
   run_all:
-    needs:
-      - run_model
+    needs: [feasibility]
     # In order to be valid this action needs to define a run commmand and some
     # output. We don't really care what these are but the below does the trick.
     # In a future release of the platform, this special action won't need to be
