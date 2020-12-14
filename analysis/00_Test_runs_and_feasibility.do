@@ -159,6 +159,9 @@ foreach var of varlist `r(varlist)' {
 * Hospital spell duration
 	gen spell_days=covid_discharge_date-covid_admission_date
 	
+	* Missing discharge dates
+	count if covid_admission_date != . & spell_days==.
+	
 	summ spell_days, d
 	summ spell_days if month(covid_admission_date)==4, d
 	summ spell_days if month(covid_admission_date)==5, d
