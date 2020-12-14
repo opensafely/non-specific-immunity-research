@@ -79,13 +79,23 @@ study = StudyDefinition(
     ), 
    
     covid_admission_date=patients.admitted_to_hospital(
-        returning= "date_admitted" ,  # defaults to "binary_flag"
+        returning= "date_admitted" , 
         with_these_diagnoses=covid_codelist,  # optional
         on_or_after="2020-02-01",
         find_first_match_in_period=True,  
         date_format="YYYY-MM-DD",  
         return_expectations={"date": {"earliest": "2020-03-01"}, "incidence" : 0.95},
    ),
+
+    covid_discharge_date=patients.admitted_to_hospital(
+        returning= "date_discharged" ,
+        with_these_diagnoses=covid_codelist,  # optional
+        on_or_after="2020-02-01",
+        find_first_match_in_period=True,  
+        date_format="YYYY-MM-DD",  
+        return_expectations={"date": {"earliest": "2020-03-01"}, "incidence" : 0.95},
+   ),
+
     covid_admission_primary_diagnosis=patients.admitted_to_hospital(
         returning="primary_diagnosis",
         with_these_diagnoses=covid_codelist,  # optional
@@ -96,6 +106,7 @@ study = StudyDefinition(
             "category": {"ratios": {"U071":0.5, "U072":0.5}},
         },
     ),
+
 
     # EXPOSURES
     lrti_in_period=patients.with_these_clinical_events(

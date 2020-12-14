@@ -16,7 +16,7 @@ actions:
     outputs:
       moderately_sensitive:
         log: logs/00_Test_runs_and_feasibility.log
-        figure1: output/00_c_lrti_week.svg
+        figure1: output/00_spells.svg
 
   run_all:
     needs: [feasibility]
