@@ -142,7 +142,7 @@ foreach var of varlist `r(varlist)' {
 
 	table covid_admission_date_week agegroup if covid_admission_date_week > 15, contents(count covid_admission_date) row col
 
-	bysort had_c_lrti: table covid_admission_date_week agegroup if covid_admission_date_week > 15, contents(count covid_admission_date) row col
+	*bysort had_c_lrti: table covid_admission_date_week agegroup if covid_admission_date_week > 15, contents(count covid_admission_date) row col
 
 
 * ICU admission
