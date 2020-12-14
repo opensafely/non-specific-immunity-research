@@ -136,9 +136,9 @@ foreach var of varlist `r(varlist)' {
 	gen hosp=0
 	replace hosp=1 if covid_admission_date !=.
 
-	tab hosp
-	tab had_lrti hosp
-	tab had_c_lrti hosp
+	*tab hosp
+	*tab had_lrti hosp
+	*tab had_c_lrti hosp
 
 	table covid_admission_date_week agegroup if covid_admission_date_week > 15, contents(count covid_admission_date) row col
 
@@ -149,9 +149,9 @@ foreach var of varlist `r(varlist)' {
 	gen icu=0
 	replace icu=1 if covid_icu_date !=.
 
-	tab icu
-	tab had_lrti icu
-	tab had_c_lrti icu
+	*tab icu
+	*tab had_lrti icu
+	*tab had_c_lrti icu
 
 	table covid_icu_date_week agegroup if covid_icu_date_week > 15, contents(count covid_icu_date) row col
 	
