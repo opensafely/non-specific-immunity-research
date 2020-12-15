@@ -172,8 +172,11 @@ foreach var of varlist `r(varlist)' {
 	summ spell_days if month(covid_admission_date)==10, d
 	summ spell_days if month(covid_admission_date)==11, d
 
+	gen spells_50=spell_days
+	replace spells_50=. if spell_days > 50
+	replace spells_50=. if spell_days < 0
 	
-	scatter spell_days covid_admission_date, jitter(3) msymbol(p) name(spells) || lfit spell_days covid_admission_date 
+	scatter spells_50 covid_admission_date , jitter(3) msymbol(p) name(spells) ylabel(0 (10) 50) || lowess spells_50 covid_admission_date 
 	graph export ./output/00_spells.svg, name(spells) as(svg)	
 	
 /*	
