@@ -65,7 +65,7 @@ drop if !inrange(agegroup,1,9)
 
 * Recode outcomes to dates from the strings
 
-ds died_date_ons-covid_admission_date, has(type string)
+ds died_date_ons-covid_discharge_date, has(type string)
 
 * Add _week variable for each outcome 
 foreach var of varlist `r(varlist)' {
@@ -100,7 +100,7 @@ foreach var of varlist `r(varlist)' {
 	drop `var'_dstr
 }
 
-
+/*
 
 /* === Exposures === */
 
@@ -129,32 +129,60 @@ foreach var of varlist `r(varlist)' {
 	bysort had_lrti: table covid_tpp_probable_week agegroup if covid_tpp_probable_week > 15, contents(count covid_tpp_probable) row col
 	
 	bysort had_c_lrti: table covid_tpp_probable_week agegroup if covid_tpp_probable_week > 15, contents(count covid_tpp_probable) row col
-	
+
+*/
 	
 * Hospital admission
 	gen hosp=0
 	replace hosp=1 if covid_admission_date !=.
 
-	tab hosp
-	tab had_lrti hosp
-	tab had_c_lrti hosp
+	*tab hosp
+	*tab had_lrti hosp
+	*tab had_c_lrti hosp
 
 	table covid_admission_date_week agegroup if covid_admission_date_week > 15, contents(count covid_admission_date) row col
 
-	bysort had_c_lrti: table covid_admission_date_week agegroup if covid_admission_date_week > 15, contents(count covid_admission_date) row col
+	*bysort had_c_lrti: table covid_admission_date_week agegroup if covid_admission_date_week > 15, contents(count covid_admission_date) row col
 
 
 * ICU admission
 	gen icu=0
 	replace icu=1 if covid_icu_date !=.
 
-	tab icu
-	tab had_lrti icu
-	tab had_c_lrti icu
+	*tab icu
+	*tab had_lrti icu
+	*tab had_c_lrti icu
 
 	table covid_icu_date_week agegroup if covid_icu_date_week > 15, contents(count covid_icu_date) row col
 	
 	
+* Hospital spell duration
+	gen spell_days=covid_discharge_date-covid_admission_date
+	
+	* Missing discharge dates
+	count if covid_admission_date != . & spell_days==.
+	
+	summ spell_days, d
+	summ spell_days if month(covid_admission_date)==4, d
+	summ spell_days if month(covid_admission_date)==5, d
+	summ spell_days if month(covid_admission_date)==6, d
+	summ spell_days if month(covid_admission_date)==7, d
+	summ spell_days if month(covid_admission_date)==8, d
+	summ spell_days if month(covid_admission_date)==9, d
+	summ spell_days if month(covid_admission_date)==10, d
+	summ spell_days if month(covid_admission_date)==11, d
+	
+	gen month=month(covid_admission_date)
+
+	gen spells_60=spell_days
+	replace spells_60=. if spell_days > 60
+	
+	graph box spells_60, over(month) ylabel(0 (15) 60) name(spells)
+	graph export ./output/00_spells.svg, name(spells) as(svg)	
+	
+		
+/*	
+
 * Death
 	gen died=0
 	replace died=1 if died_date_ons !=.
@@ -172,6 +200,7 @@ foreach var of varlist `r(varlist)' {
 
 	bysort had_c_lrti: table died_date_ons_week agegroup if died_date_ons_week > 15, contents(count died_ons_covid_flag_any) row col
 
+
 	
 /* === Exposures over time === */
 
@@ -186,7 +215,7 @@ graph export ./output/00_c_lrti_week.svg, name(c_lrti_gph) as(svg)
 
 table c_lrti_week agegroup if c_lrti_week > 15, contents(count c_lrti_) row col
 	
-	
+*/
 	
 	
 
