@@ -9,6 +9,9 @@ from cohortextractor import (
     filter_codes_by_category,
 )
 
+# dictionary of MSOA codes (for dummy data)
+from dictionaries import dict_msoa
+
 # IMPORT CODELIST DEFINITIONS FROM CODELIST.PY (WHICH PULLS THEM FROM
 # CODELIST FOLDER
 from codelists import *
@@ -504,6 +507,16 @@ study = StudyDefinition(
                     "STP10": 0.1,
                 }
             },
+        },
+    ),
+
+    # GEOGRAPHIC REGION MSOA
+    msoa=patients.registered_practice_as_of(        
+        "2020-02-01",
+        returning="msoa_code",
+        return_expectations={
+            "rate": "universal",
+            "category": {"ratios": dict_msoa},
         },
     ),
 
