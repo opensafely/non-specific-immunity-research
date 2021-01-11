@@ -1,7 +1,15 @@
 {
   "files": {
+    "analysis/cr_create_analysis_dataset.dta": {
+      "created_by_action": "crMAIN",
+      "privacy_level": "highly_sensitive"
+    },
     "logs/00_Test_runs_and_feasibility.log": {
       "created_by_action": "feasibility",
+      "privacy_level": "moderately_sensitive"
+    },
+    "logs/cr_create_analysis_dataset.log": {
+      "created_by_action": "crMAIN",
       "privacy_level": "moderately_sensitive"
     },
     "output/00_c_lrti_week.svg": {
@@ -24,13 +32,22 @@
       "completed_at": "2020-12-03T14:31:59Z"
     },
     "generate_cohort": {
-      "status": "succeeded",
+      "state": "succeeded",
       "commit": "none",
-      "docker_image_id": "sha256:28e875884304b860801568ee728a9333e23af3eea2ac02bab1d8aa5b3bcbecb3",
-      "job_id": "anwdspvhnpfd4fpy",
+      "docker_image_id": "sha256:455ef765e7756c41752f553a92155a46a415b4efda50a56d35a67b1161dba66e",
+      "job_id": "vguvl6ih4t5drlcd",
       "run_by_user": "EIDEDGRI",
-      "created_at": "2020-12-17T11:43:31Z",
-      "completed_at": "2020-12-17T11:44:06Z"
+      "created_at": "2021-01-11T15:31:15Z",
+      "completed_at": "2021-01-11T15:31:35Z"
+    },
+    "crMAIN": {
+      "state": "succeeded",
+      "commit": "none",
+      "docker_image_id": "sha256:e4a676ff497b1550742032051cce1ba5502f65b172e86e4d82aadbaa1e056935",
+      "job_id": "g4n26k24ebmna7nv",
+      "run_by_user": "EIDEDGRI",
+      "created_at": "2021-01-11T16:06:21Z",
+      "completed_at": "2021-01-11T16:06:40Z"
     }
   }
 }
