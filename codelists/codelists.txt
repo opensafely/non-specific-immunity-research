@@ -43,4 +43,8 @@ opensafely/type-1-diabetes/2020-06-29
 opensafely/diabetes-unknown-type/2020-06-29
 opensafely/type-2-diabetes/2020-06-29
 opensafely/insulin-medication/2020-04-26
-opensafely/gi-bleed-or-ulcer-snomed/2020-04-08
+opensafely/gi-bleed-or-ulcer/2020-04-08
+opensafely/bone-marrow-transplant/2020-04-15
+opensafely/inflammatory-bowel-disease/2020-04-07
+opensafely/solid-organ-transplantation/2020-04-10
+opensafely/chemotherapy-or-radiotherapy-updated/2020-04-15

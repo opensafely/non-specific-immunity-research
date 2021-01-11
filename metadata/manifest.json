@@ -35,19 +35,19 @@
       "state": "succeeded",
       "commit": "none",
       "docker_image_id": "sha256:455ef765e7756c41752f553a92155a46a415b4efda50a56d35a67b1161dba66e",
-      "job_id": "vguvl6ih4t5drlcd",
+      "job_id": "4flotzqxucimn57p",
       "run_by_user": "EIDEDGRI",
-      "created_at": "2021-01-11T15:31:15Z",
-      "completed_at": "2021-01-11T15:31:35Z"
+      "created_at": "2021-01-11T17:13:11Z",
+      "completed_at": "2021-01-11T17:13:36Z"
     },
     "crMAIN": {
       "state": "succeeded",
       "commit": "none",
       "docker_image_id": "sha256:e4a676ff497b1550742032051cce1ba5502f65b172e86e4d82aadbaa1e056935",
-      "job_id": "g4n26k24ebmna7nv",
+      "job_id": "qrqy6cxgy2kxr6wk",
       "run_by_user": "EIDEDGRI",
-      "created_at": "2021-01-11T16:06:21Z",
-      "completed_at": "2021-01-11T16:06:40Z"
+      "created_at": "2021-01-11T17:14:16Z",
+      "completed_at": "2021-01-11T17:14:38Z"
     }
   }
 }

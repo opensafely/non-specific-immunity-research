@@ -1,17 +1,18 @@
-2020-12-17T11:43:58.411131000Z Generating cohort for study_definition...
-2020-12-17T11:43:58.411175100Z Running. Please wait...
-2020-12-17T11:44:04.433764600Z Successfully created cohort and covariates at output/input.csv
+2021-01-11T17:13:25.916384200Z Generating cohort for study_definition...
+2021-01-11T17:13:25.916420800Z Running. Please wait...
+2021-01-11T17:13:30.989724200Z Successfully created cohort and covariates at output/input.csv
 
 
-status: succeeded
-status_message: Completed successfully
+state: succeeded
 commit: none
-docker_image_id: sha256:28e875884304b860801568ee728a9333e23af3eea2ac02bab1d8aa5b3bcbecb3
-job_id: anwdspvhnpfd4fpy
+docker_image_id: sha256:455ef765e7756c41752f553a92155a46a415b4efda50a56d35a67b1161dba66e
+job_id: 4flotzqxucimn57p
 run_by_user: EIDEDGRI
-created_at: 2020-12-17T11:43:31Z
-started_at: 2020-12-17T11:43:55Z
-completed_at: 2020-12-17T11:44:06Z
+created_at: 2021-01-11T17:13:11Z
+started_at: 2021-01-11T17:13:25Z
+completed_at: 2021-01-11T17:13:36Z
+
+Completed successfully
 
 outputs:
   output/input.csv  - highly_sensitive

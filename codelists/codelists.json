@@ -270,11 +270,35 @@
       "downloaded_at": "2021-01-05 15:49:51.722503Z",
       "sha": "9d4c57c0b8738962da04b32ab43b7659cd64d774"
     },
-    "opensafely-gi-bleed-or-ulcer-snomed.csv": {
-      "id": "opensafely/gi-bleed-or-ulcer-snomed/2020-04-08",
-      "url": "https://codelists.opensafely.org/codelist/opensafely/gi-bleed-or-ulcer-snomed/2020-04-08/",
-      "downloaded_at": "2021-01-11 16:28:09.989889Z",
-      "sha": "4ef7c996354eda3b76c4d667bc4ed2832b164ec1"
+    "opensafely-gi-bleed-or-ulcer.csv": {
+      "id": "opensafely/gi-bleed-or-ulcer/2020-04-08",
+      "url": "https://codelists.opensafely.org/codelist/opensafely/gi-bleed-or-ulcer/2020-04-08/",
+      "downloaded_at": "2021-01-11 17:12:44.552652Z",
+      "sha": "aa378d97c3ad4fcef4f68042b6052d455ebf1c7f"
+    },
+    "opensafely-bone-marrow-transplant.csv": {
+      "id": "opensafely/bone-marrow-transplant/2020-04-15",
+      "url": "https://codelists.opensafely.org/codelist/opensafely/bone-marrow-transplant/2020-04-15/",
+      "downloaded_at": "2021-01-11 17:06:04.559319Z",
+      "sha": "3898cc82227c9268fd7e159c2531dfeb01c6f523"
+    },
+    "opensafely-inflammatory-bowel-disease.csv": {
+      "id": "opensafely/inflammatory-bowel-disease/2020-04-07",
+      "url": "https://codelists.opensafely.org/codelist/opensafely/inflammatory-bowel-disease/2020-04-07/",
+      "downloaded_at": "2021-01-11 17:09:35.810426Z",
+      "sha": "cd2175107ab3e81151fc31cd8ffd754ce5902f8b"
+    },
+    "opensafely-solid-organ-transplantation.csv": {
+      "id": "opensafely/solid-organ-transplantation/2020-04-10",
+      "url": "https://codelists.opensafely.org/codelist/opensafely/solid-organ-transplantation/2020-04-10/",
+      "downloaded_at": "2021-01-11 17:09:35.963061Z",
+      "sha": "94178a9e19770b9c43c08fe42df6ab5ed0d9ec49"
+    },
+    "opensafely-chemotherapy-or-radiotherapy-updated.csv": {
+      "id": "opensafely/chemotherapy-or-radiotherapy-updated/2020-04-15",
+      "url": "https://codelists.opensafely.org/codelist/opensafely/chemotherapy-or-radiotherapy-updated/2020-04-15/",
+      "downloaded_at": "2021-01-11 17:09:36.249244Z",
+      "sha": "cbe7b611b3a811fa79f6eb607b357e14f1361e40"
     }
   }
 }
