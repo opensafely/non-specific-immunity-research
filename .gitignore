@@ -4,3 +4,7 @@ model.log
 __pycache__
 .python-version
 output/*
+logs/cr_create_analysis_dataset.log
+analysis/cr_create_analysis_dataset.dta
+metadata/crMAIN.log
+metadata/generate_cohort.log
