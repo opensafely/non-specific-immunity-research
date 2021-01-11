@@ -269,6 +269,12 @@
       "url": "https://codelists.opensafely.org/codelist/opensafely/insulin-medication/2020-04-26/",
       "downloaded_at": "2021-01-05 15:49:51.722503Z",
       "sha": "9d4c57c0b8738962da04b32ab43b7659cd64d774"
+    },
+    "opensafely-gi-bleed-or-ulcer-snomed.csv": {
+      "id": "opensafely/gi-bleed-or-ulcer-snomed/2020-04-08",
+      "url": "https://codelists.opensafely.org/codelist/opensafely/gi-bleed-or-ulcer-snomed/2020-04-08/",
+      "downloaded_at": "2021-01-11 16:28:09.989889Z",
+      "sha": "4ef7c996354eda3b76c4d667bc4ed2832b164ec1"
     }
   }
 }
