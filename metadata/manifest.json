@@ -8,11 +8,15 @@
       "created_by_action": "feasibility",
       "privacy_level": "moderately_sensitive"
     },
+    "logs/an_ccount_crude.log": {
+      "created_by_action": "anCASE",
+      "privacy_level": "moderately_sensitive"
+    },
     "logs/cr_create_analysis_dataset.log": {
       "created_by_action": "crMAIN",
       "privacy_level": "moderately_sensitive"
     },
-    "output/00_c_lrti_week.svg": {
+    "output/00_spells.svg": {
       "created_by_action": "feasibility",
       "privacy_level": "moderately_sensitive"
     },
@@ -22,15 +26,6 @@
     }
   },
   "actions": {
-    "feasibility": {
-      "status": "succeeded",
-      "commit": "none",
-      "docker_image_id": "sha256:e4a676ff497b1550742032051cce1ba5502f65b172e86e4d82aadbaa1e056935",
-      "job_id": "oveaq5zljmxercro",
-      "run_by_user": "EIDEDGRI",
-      "created_at": "2020-12-03T14:31:34Z",
-      "completed_at": "2020-12-03T14:31:59Z"
-    },
     "generate_cohort": {
       "state": "succeeded",
       "commit": "none",
@@ -48,6 +43,24 @@
       "run_by_user": "EIDEDGRI",
       "created_at": "2021-01-11T17:14:16Z",
       "completed_at": "2021-01-11T17:14:38Z"
+    },
+    "feasibility": {
+      "state": "succeeded",
+      "commit": "none",
+      "docker_image_id": "sha256:e4a676ff497b1550742032051cce1ba5502f65b172e86e4d82aadbaa1e056935",
+      "job_id": "7pe2vshsdagtzjsn",
+      "run_by_user": "EIDEDGRI",
+      "created_at": "2021-01-11T20:58:28Z",
+      "completed_at": "2021-01-11T20:58:45Z"
+    },
+    "anCASE": {
+      "state": "succeeded",
+      "commit": "none",
+      "docker_image_id": "sha256:e4a676ff497b1550742032051cce1ba5502f65b172e86e4d82aadbaa1e056935",
+      "job_id": "jrlj5yqoquu27xvy",
+      "run_by_user": "EIDEDGRI",
+      "created_at": "2021-01-12T10:49:06Z",
+      "completed_at": "2021-01-12T10:49:25Z"
     }
   }
 }

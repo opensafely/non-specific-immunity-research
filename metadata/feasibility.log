@@ -1,0 +1,16 @@
+
+
+state: succeeded
+commit: none
+docker_image_id: sha256:e4a676ff497b1550742032051cce1ba5502f65b172e86e4d82aadbaa1e056935
+job_id: 7pe2vshsdagtzjsn
+run_by_user: EIDEDGRI
+created_at: 2021-01-11T20:58:28Z
+started_at: 2021-01-11T20:58:41Z
+completed_at: 2021-01-11T20:58:45Z
+
+Completed successfully
+
+outputs:
+  logs/00_Test_runs_and_feasibility.log  - moderately_sensitive
+  output/00_spells.svg                   - moderately_sensitive

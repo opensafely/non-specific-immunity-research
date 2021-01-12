@@ -8,3 +8,5 @@ logs/cr_create_analysis_dataset.log
 analysis/cr_create_analysis_dataset.dta
 metadata/crMAIN.log
 metadata/generate_cohort.log
+logs/00_Test_runs_and_feasibility.log
+logs/an_ccount_crude.log
