@@ -27,6 +27,13 @@ actions:
       highly_sensitive:
         data: analysis/cr_create_analysis_dataset.dta
 
+  anCASE:
+    run: stata-mp:latest analysis/an_ccount_crude.do
+    needs: [crMAIN]
+    outputs:
+      moderately_sensitive:
+        log: logs/an_ccount_crude.log
+
   run_all:
     needs: [feasibility]
     # In order to be valid this action needs to define a run commmand and some

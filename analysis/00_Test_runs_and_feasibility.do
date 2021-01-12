@@ -27,8 +27,12 @@ set linesize 150
 *import delimited "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\output\input.csv", clear
 import delimited ./output/input.csv, clear
 
+merge m:1 msoa using ./lookups/MSOA_lookup
+drop if _merge==2
+drop _merge
+
 * Keep test variables
-keep patient_id age covid_* died_* *lrti*
+keep patient_id age covid_* died_* *lrti* utla
 drop covid_admission_primary*
 
 /* === Age groups === */ 
@@ -119,19 +123,27 @@ foreach var of varlist `r(varlist)' {
 	tab had_c_lrti
 	
 	summ c_lrti_in_period if c_lrti_in_period > 0, d
-
+*/
 	
 /* === Outcomes === */
 
 * COVID positive
-	table covid_tpp_probable_week agegroup if covid_tpp_probable_week > 15, contents(count covid_tpp_probable) row col
+	table covid_tpp_probable_week agegroup if covid_tpp_probable_week > 35, contents(count covid_tpp_probable) row col
 	
-	bysort had_lrti: table covid_tpp_probable_week agegroup if covid_tpp_probable_week > 15, contents(count covid_tpp_probable) row col
+	count if covid_tpp_probable != .
 	
-	bysort had_c_lrti: table covid_tpp_probable_week agegroup if covid_tpp_probable_week > 15, contents(count covid_tpp_probable) row col
+	gen covid_incohort = covid_tpp_probable
+	replace covid_incohort = . if covid_tpp_probable < date("01sep2020", "DMY")
+	replace covid_incohort = . if covid_tpp_probable > date("01dec2020", "DMY")
+	
+	count if covid_incohort != .
+	
+	bysort utla: egen n_covid = count(covid_incohort)
+	
+	summ n_covid, d
+	
 
-*/
-	
+
 * Hospital admission
 	gen hosp=0
 	replace hosp=1 if covid_admission_date !=.
@@ -140,7 +152,7 @@ foreach var of varlist `r(varlist)' {
 	*tab had_lrti hosp
 	*tab had_c_lrti hosp
 
-	table covid_admission_date_week agegroup if covid_admission_date_week > 15, contents(count covid_admission_date) row col
+	table covid_admission_date_week agegroup if covid_admission_date_week > 35, contents(count covid_admission_date) row col
 
 	*bysort had_c_lrti: table covid_admission_date_week agegroup if covid_admission_date_week > 15, contents(count covid_admission_date) row col
 
@@ -153,7 +165,7 @@ foreach var of varlist `r(varlist)' {
 	*tab had_lrti icu
 	*tab had_c_lrti icu
 
-	table covid_icu_date_week agegroup if covid_icu_date_week > 15, contents(count covid_icu_date) row col
+	table covid_icu_date_week agegroup if covid_icu_date_week > 35, contents(count covid_icu_date) row col
 	
 	
 * Hospital spell duration
@@ -177,11 +189,11 @@ foreach var of varlist `r(varlist)' {
 	gen spells_60=spell_days
 	replace spells_60=. if spell_days > 60
 	
-	graph box spells_60, over(month) ylabel(0 (15) 60) name(spells)
+	graph box spells_60 if month > 3, over(month) ylabel(0 (15) 60) name(spells)
 	graph export ./output/00_spells.svg, name(spells) as(svg)	
 	
 		
-/*	
+/*
 
 * Death
 	gen died=0
@@ -190,15 +202,7 @@ foreach var of varlist `r(varlist)' {
 	gen cdied=0
 	replace cdied=1 if died_ons_covid_flag_any==1
 
-	tab had_lrti died, row
-	tab had_lrti cdied, row
-	
-	tab had_c_lrti died, row
-	tab had_c_lrti cdied, row
-
-	table died_date_ons_week agegroup if died_date_ons_week > 15, contents(count died_ons_covid_flag_any) row col
-
-	bysort had_c_lrti: table died_date_ons_week agegroup if died_date_ons_week > 15, contents(count died_ons_covid_flag_any) row col
+	table died_date_ons_week agegroup if died_date_ons_week > 35, contents(count died_ons_covid_flag_any) row col
 
 
 	
