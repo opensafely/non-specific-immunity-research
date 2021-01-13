@@ -35,55 +35,69 @@ study = StudyDefinition(
         on_or_after="2020-09-01", date_format="YYYY-MM",
     ),
 
-    # FOLLOW UP
-    has_12_m_follow_up=patients.registered_with_one_practice_between(
-        "2019-09-01", "2020-09-01", ### 12 months prior to 1st Sep 2020
-        return_expectations={
-            "incidence" : 0.95,
-        }
-    ),
-
     # OUTCOMES
     died_ons_covid_flag_any=patients.with_these_codes_on_death_certificate(
         covid_codelist,
         on_or_after="2020-02-01",
         match_only_underlying_cause=False,
-        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
+        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.2},
     ),
-    died_ons_covid_flag_underlying=patients.with_these_codes_on_death_certificate(
-        covid_codelist,
-        on_or_after="2020-02-01",
-        match_only_underlying_cause=True,
-        return_expectations={"date": {"earliest": "2020-02-01"}, "incidence" : 0.6},
-    ),
+
     died_date_ons=patients.died_from_any_cause(
         on_or_after="2020-02-01",
         returning="date_of_death",
         include_month=True,
         include_day=True,
-        return_expectations={"date": {"earliest": "2020-08-01"}, "incidence" : 0.8},
-    ),
-    
-    covid_icu_date=patients.admitted_to_icu(
-        on_or_after="2020-02-01",
-        include_day=True,
-        returning="date_admitted",
-        find_first_match_in_period=True,
-        return_expectations={"date": {"earliest": "2020-08-01"}, "incidence" : 0.2},
+        return_expectations={"date": {"earliest": "2020-08-01"}, "incidence" : 0.1},
     ),
 
-   covid_tpp_probable=patients.with_these_clinical_events(
+
+    ### Primary care COVID cases
+    covid_tpp_probable=patients.with_these_clinical_events(
         combine_codelists(covid_identification_in_primary_care_case_codes_clinical,
                           covid_identification_in_primary_care_case_codes_test,
                           covid_identification_in_primary_care_case_codes_seq),
         return_first_date_in_period=True,
         include_day=True,
         return_expectations={"date": {"earliest": "2020-08-20"}, "incidence" : 0.6},
+    ),
+
+    covid_tpp_clin=patients.with_these_clinical_events(
+        covid_identification_in_primary_care_case_codes_clinical,
+        return_first_date_in_period=True,
+        include_day=True,
+        return_expectations={"date": {"earliest": "2020-08-20"}, "incidence" : 0.15},
+    ),
+
+    covid_tpp_test=patients.with_these_clinical_events(
+        covid_identification_in_primary_care_case_codes_test,
+        return_first_date_in_period=True,
+        include_day=True,
+        return_expectations={"date": {"earliest": "2020-08-20"}, "incidence" : 0.35},
+    ),
+
+    covid_tpp_seq=patients.with_these_clinical_events(
+        covid_identification_in_primary_care_case_codes_seq,
+        return_first_date_in_period=True,
+        include_day=True,
+        return_expectations={"date": {"earliest": "2020-08-20"}, "incidence" : 0.1},
+    ),
+
+    ### COVID test positive (SGSS)
+    first_pos_test_sgss=patients.with_test_result_in_sgss(
+       pathogen="SARS-CoV-2",
+       test_result="positive",
+       find_first_match_in_period=True,
+       returning="date",
+       date_format="YYYY-MM-DD",
+       return_expectations={"date": {"earliest": "2020-08-01"},
+                            "rate": "exponential_increase"
+       },
     ), 
    
+    ### Admission to hospital - COVID diagnosis to be defined later
     covid_admission_date=patients.admitted_to_hospital(
         returning= "date_admitted" , 
-        with_these_diagnoses=covid_codelist,  # optional
         on_or_after="2020-02-01",
         find_first_match_in_period=True,  
         date_format="YYYY-MM-DD",  
@@ -92,23 +106,11 @@ study = StudyDefinition(
 
     covid_discharge_date=patients.admitted_to_hospital(
         returning= "date_discharged" ,
-        with_these_diagnoses=covid_codelist,  # optional
         on_or_after="2020-02-01",
         find_first_match_in_period=True,  
         date_format="YYYY-MM-DD",  
         return_expectations={"date": {"earliest": "2020-03-01"}, "incidence" : 0.95},
    ),
-
-    covid_admission_primary_diagnosis=patients.admitted_to_hospital(
-        returning="primary_diagnosis",
-        with_these_diagnoses=covid_codelist,  # optional
-        on_or_after="2020-02-01",
-        find_first_match_in_period=True,  
-        date_format="YYYY-MM-DD", 
-        return_expectations={"date": {"earliest": "2020-03-01"},"incidence" : 0.3,
-            "category": {"ratios": {"U071":0.5, "U072":0.5}},
-        },
-    ),
 
 
     # EXPOSURES
