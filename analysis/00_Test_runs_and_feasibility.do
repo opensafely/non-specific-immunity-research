@@ -10,7 +10,7 @@ OTHER OUTPUT: 			logfile
 						
 							
 ==============================================================================*/
-/*
+
 
 * Open a log file
 cap log close
@@ -19,6 +19,8 @@ cap log close
 log using ./logs/00_Test_runs_and_feasibility, replace t
 
 set linesize 150
+
+/*
 
 *cd C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research
 
@@ -221,7 +223,7 @@ table c_lrti_week agegroup if c_lrti_week > 15, contents(count c_lrti_) row col
 	
 */
 	
-	
+*/
 
 log close
 
@@ -267,5 +269,4 @@ log close
 	
 /* === Covid positives by negative test and agegroup over time === */
 	bysort has_neg: table covid_tpp_probable_week agegroup if covid_tpp_probable_week > 15, contents(count covid_tpp_probable) row col
-*/
 */
