@@ -23,27 +23,17 @@
     "output/input.csv": {
       "created_by_action": "generate_cohort",
       "privacy_level": "highly_sensitive"
+    },
+    "output/tpp_sgss_counts.svg": {
+      "created_by_action": "anCASE",
+      "privacy_level": "moderately_sensitive"
+    },
+    "output/tpp_type_counts.svg": {
+      "created_by_action": "anCASE",
+      "privacy_level": "moderately_sensitive"
     }
   },
   "actions": {
-    "generate_cohort": {
-      "state": "succeeded",
-      "commit": "none",
-      "docker_image_id": "sha256:455ef765e7756c41752f553a92155a46a415b4efda50a56d35a67b1161dba66e",
-      "job_id": "4flotzqxucimn57p",
-      "run_by_user": "EIDEDGRI",
-      "created_at": "2021-01-11T17:13:11Z",
-      "completed_at": "2021-01-11T17:13:36Z"
-    },
-    "crMAIN": {
-      "state": "succeeded",
-      "commit": "none",
-      "docker_image_id": "sha256:e4a676ff497b1550742032051cce1ba5502f65b172e86e4d82aadbaa1e056935",
-      "job_id": "qrqy6cxgy2kxr6wk",
-      "run_by_user": "EIDEDGRI",
-      "created_at": "2021-01-11T17:14:16Z",
-      "completed_at": "2021-01-11T17:14:38Z"
-    },
     "feasibility": {
       "state": "succeeded",
       "commit": "none",
@@ -53,14 +43,32 @@
       "created_at": "2021-01-11T20:58:28Z",
       "completed_at": "2021-01-11T20:58:45Z"
     },
+    "generate_cohort": {
+      "state": "succeeded",
+      "commit": "none",
+      "docker_image_id": "sha256:455ef765e7756c41752f553a92155a46a415b4efda50a56d35a67b1161dba66e",
+      "job_id": "iteekawdxvhz2yip",
+      "run_by_user": "EIDEDGRI",
+      "created_at": "2021-01-13T14:57:42Z",
+      "completed_at": "2021-01-13T14:58:07Z"
+    },
+    "crMAIN": {
+      "state": "succeeded",
+      "commit": "none",
+      "docker_image_id": "sha256:e4a676ff497b1550742032051cce1ba5502f65b172e86e4d82aadbaa1e056935",
+      "job_id": "3iq5aqyvw4daejfj",
+      "run_by_user": "EIDEDGRI",
+      "created_at": "2021-01-13T14:58:18Z",
+      "completed_at": "2021-01-13T14:58:50Z"
+    },
     "anCASE": {
       "state": "succeeded",
       "commit": "none",
       "docker_image_id": "sha256:e4a676ff497b1550742032051cce1ba5502f65b172e86e4d82aadbaa1e056935",
-      "job_id": "jrlj5yqoquu27xvy",
+      "job_id": "jfvjpxtjmuuogalu",
       "run_by_user": "EIDEDGRI",
-      "created_at": "2021-01-12T10:49:06Z",
-      "completed_at": "2021-01-12T10:49:25Z"
+      "created_at": "2021-01-13T18:04:13Z",
+      "completed_at": "2021-01-13T18:04:34Z"
     }
   }
 }

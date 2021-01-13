@@ -90,8 +90,8 @@ study = StudyDefinition(
        find_first_match_in_period=True,
        returning="date",
        date_format="YYYY-MM-DD",
-       return_expectations={"date": {"earliest": "2020-08-01"},
-                            "rate": "exponential_increase"
+       return_expectations={"date": {"earliest": "2020-06-01"},
+                            "incidence": 0.4
        },
     ), 
    

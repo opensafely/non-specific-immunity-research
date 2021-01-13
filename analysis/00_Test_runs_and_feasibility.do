@@ -10,7 +10,7 @@ OTHER OUTPUT: 			logfile
 						
 							
 ==============================================================================*/
-
+/*
 
 * Open a log file
 cap log close
@@ -267,4 +267,5 @@ log close
 	
 /* === Covid positives by negative test and agegroup over time === */
 	bysort has_neg: table covid_tpp_probable_week agegroup if covid_tpp_probable_week > 15, contents(count covid_tpp_probable) row col
+*/
 */

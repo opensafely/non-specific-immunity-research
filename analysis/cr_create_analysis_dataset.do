@@ -25,11 +25,8 @@ set linesize 100
 cap log close
 log using ./logs/cr_create_analysis_dataset, replace t
 
-timer on 1
-
 *import delimited "./lookups/MSOA_lookup.csv", varnames(1) clear
 *save "./lookups/MSOA_lookup", replace
-
 *import delimited "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\output\input.csv", clear
 
 clear
@@ -52,13 +49,12 @@ rename hiv hiv_code
 * DROP IF COVID DIAGNOSIS BEFORE/ON STUDY START
 noi di "COVID ON/BEFORE STUDY START DATE:" 
 drop if date(covid_tpp_probable, "YMD")<=d(1/9/2020)
+drop if date(first_pos_test_sgss, "YMD")<=d(1/9/2020)
 
 * DROP IF HOSPITAL ADMISSION BEFORE/ON STUDY START
-noi di "HOSPTIAL ADMISSION ON/BEFORE STUDY START DATE:" 
-drop if date(covid_admission_date, "YMD")<=d(1/9/2020)
-
-noi di "ICU ADMISSION ON/BEFORE STUDY START DATE:" 
-drop if date(covid_icu_date, "YMD")<=d(1/9/2020)
+* XXX IF NO POSITIVE TEST PRIOR TO STUDY START THEN NO VALID HOSPITAL ADMISSION EITHER XXX
+*noi di "HOSPTIAL ADMISSION ON/BEFORE STUDY START DATE:" 
+*drop if date(covid_admission_date, "YMD")<=d(1/9/2020)
 
 * DROP IF DIED ON/BEFORE STUDY START DATE
 noi di "DIED ON/BEFORE STUDY START DATE:" 
@@ -81,9 +77,13 @@ drop if inlist(sex, "I", "U")
 ******************************
 
 * Outcomes
-foreach var of varlist 	died_date_ons 					///
-						covid_icu_date					///
+foreach var of varlist 	dereg_date						///
+						died_date_ons 					///
 						covid_tpp_probable				///
+						covid_tpp_clin					///
+						covid_tpp_test					///
+						covid_tpp_seq					///
+						first_pos_test_sgss				///
 						covid_admission_date			///
 						covid_discharge_date {
 						
@@ -789,7 +789,12 @@ label var temporary_immunodeficiency_date "Temporary immunosuppression, date"
 label var dialysis						"Dialysis"
 
 * Dates
-label var covid_tpp_probable			"Date of covid diagnosis"
+label var covid_tpp_probable			"Date of covid diagnosis TPP"
+label var covid_tpp_clin				"Date of covid diagnosis CLIN"
+label var covid_tpp_test				"Date of covid diagnosis TEST"
+label var covid_tpp_seq					"Date of covid diagnosis SEQ"
+
+label var first_pos_test_sgss			"Date of first SGSS positive test"
 	
 * Outcomes and follow-up
 label var enter_date					"Date of study entry"
@@ -820,10 +825,6 @@ sort patient_id
 label data "Viral competition 11-01-2021"
 
 save ./analysis/cr_create_analysis_dataset.dta, replace
-
-
-timer off 1
-timer list
 
 
 log close
