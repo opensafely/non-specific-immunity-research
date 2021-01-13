@@ -20,6 +20,8 @@ log using ./logs/00_Test_runs_and_feasibility, replace t
 
 set linesize 150
 
+/*
+
 *cd C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research
 
 * Import dataset into STATA
@@ -221,7 +223,7 @@ table c_lrti_week agegroup if c_lrti_week > 15, contents(count c_lrti_) row col
 	
 */
 	
-	
+*/
 
 log close
 

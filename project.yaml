@@ -33,6 +33,8 @@ actions:
     outputs:
       moderately_sensitive:
         log: logs/an_ccount_crude.log
+        figure1: output/tpp_sgss_counts.svg
+        figure2: output/tpp_type_counts.svg
 
   run_all:
     needs: [feasibility]
