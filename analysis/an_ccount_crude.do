@@ -28,12 +28,12 @@ cap log close
 log using ./logs/an_ccount_crude, replace t
 
 
-*clear
+clear
 *use "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\analysis\cr_create_analysis_dataset"
 use ./analysis/cr_create_analysis_dataset.dta
 
 
-gen test_censor = date("01/01/2021", "DMY"")
+gen test_censor = date("01/01/2021", "DMY")
 
 
 /* COVID in cohort */
