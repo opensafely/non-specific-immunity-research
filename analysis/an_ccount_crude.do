@@ -115,12 +115,16 @@ disp "Number of unique UTLAs = " `r(r)'
 table utla_name, contents(count incohort_date_tpp count patient_id)
 
 
+* Regroup UTLAs with small case numbers
+
+
+
 
 * Fit fractional polynomials to case counts by region
 
 fp <tpp_dt1>: regress tpp_n1 <tpp_dt1>
 
-regress tpp_n1 tpp_dt1_1 tpp_dt1_1
+regress tpp_n1 tpp_dt1_1 tpp_dt1_2
 predict p_tpp
 
 line tpp_n1 tpp_dt1 || line p_tpp tpp_dt1, name(tpp_fp) ytitle("Daily COVID diagnoses")
