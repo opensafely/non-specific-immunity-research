@@ -55,6 +55,12 @@ copd_lrti_codes = codelist_from_csv(
     column="CTV3ID",
 )
 
+rti_codes = codelist_from_csv(
+    "codelists/user-dgrint-respiratory-tract-infection-dev.csv",
+    system="ctv3",
+    column="code",
+)
+
 # DEMOGRAPHICS CODELISTS
 aplastic_codes = codelist_from_csv(
     "codelists/opensafely-aplastic-anaemia.csv", system="ctv3", column="CTV3ID"

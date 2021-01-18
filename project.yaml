@@ -19,13 +19,13 @@ actions:
 #        figure1: output/00_spells.svg
 
   crMAIN:
-    run: stata-mp:latest analysis/cr_create_analysis_dataset.do
+    run: stata-mp:latest analysis/cr_analysis_dataset.do
     needs: [generate_cohort]
     outputs:
       moderately_sensitive:
-        log: logs/cr_create_analysis_dataset.log
+        log: logs/cr_analysis_dataset.log
       highly_sensitive:
-        data: analysis/cr_create_analysis_dataset.dta
+        data: analysis/cr_analysis_dataset.dta
 
   anCASE:
     run: stata-mp:latest analysis/an_ccount_crude.do

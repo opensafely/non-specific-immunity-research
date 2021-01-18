@@ -1,0 +1,602 @@
+code,term
+14B2.,H/O: pneumonia
+14B3.,H/O: [COAD] or [bronchitis]
+1C9..,Throat soreness (& symptom)
+1C92.,Has a sore throat
+1C9Z.,Sore throat symptom NOS
+2DB6.,O/E - follicular tonsillitis
+2DC2.,O/E - granular pharyngitis
+A0222,Salmonella pneumonia
+A054.,Amoebic lung abscess
+A33..,(Whooping cough) or (Bordetella)
+A330.,Bordetella pertussis (& infection)
+A331.,Bordetella parapertussis (& infection)
+A33y.,Whooping cough - other specified organism
+A33yz,Other whooping cough NOS
+A33z.,Whooping cough NOS
+A34..,Streptococcal sore throat with scarlatina
+A340.,Streptococcal sore throat
+A3401,Streptococcal laryngitis
+A3402,Streptococcal pharyngitis
+A3403,Streptococcal tonsillitis
+A340z,Streptococcal sore throat NOS
+A34z.,Streptococcal sore throat with scarlatina NOS
+A3B2.,Pneumococcal infection
+A3B5.,Haemophilus influenzae infection
+A3By4,Mycoplasmal pneumonia
+A551.,Postmeasles pneumonia
+A552.,Postmeasles otitis media
+A740.,Herpangina
+A790.,Adenovirus (& infection)
+A793.,Rhinovirus (& infection)
+A795.,Coronavirus infection
+A830.,Q fever
+A986.,Gonococcal pharyngitis
+AA12.,Vincent's angina - pharyngitis
+AA1z.,Vincent's: [angina NOS] or [laryngitis] or [tonsillitis]
+AA25.,Gangosa
+AB24.,Candidiasis: [lung] or [pneumonia]
+AB405,Histoplasma capsulatum with pneumonia
+AB415,Pulmonary African histoplasmosis
+AB4z5,Histoplasmosis with pneumonia
+AB63.,Aspergillosis
+AB631,Tonsillar aspergillosis
+Ayu39,[X]Whooping cough due to other Bordetella species
+Ayu3A,"[X]Whooping cough, unspecified"
+Ayu3U,"[X]Haemophilus influenzae infection, unspecified"
+AyuDA,"[X]Adenovirus infection, unspecified"
+AyuDB,"[X]Enterovirus infection, unspecified"
+AyuDC,"[X]Coronavirus infection, unspecified"
+AyuEK,[X]Other forms of aspergillosis
+AyuEL,"[X]Aspergillosis, unspecified"
+AyuEU,[X]Other pulmonary aspergillosis
+F5019,Other acute external ear infections
+F501B,Chronic otitis externa due to aspergillosis
+F51..,Non-suppurative otitis media with eustachian tube disorders
+F510.,Acute non-suppurative otitis media
+F5100,Acute otitis media: [with effusion] or [secretory]
+F5101,Acute non-suppurative otitis media - serous
+F5102,Acute non-suppurative otitis media - mucoid
+F5103,Acute non-suppurative otitis media - sanguinous
+F510z,Acute non-suppurative otitis media NOS
+F5111,Serosanguineous chronic otitis media
+F511z,Chronic serous otitis media NOS
+F512.,Otitis media with effusion &/or chronic secretory mucoid
+F5121,Mucosanguinous chronic otitis media
+F512z,Chronic mucoid otitis media NOS
+F513.,"Chronic otitis media with effusion, other"
+F513z,Other chronic non-suppurative otitis media NOS
+F514.,Unspecified non-suppurative otitis media
+F5141,Serous otitis media NOS
+F5142,Catarrhal otitis media NOS
+F5143,Mucoid otitis media NOS
+F514z,Non-suppurative otitis media NOS
+F518.,"Chronic otitis media with effusion, unspecified"
+F52..,Suppurative and unspecified otitis media
+F520.,Acute suppurative otitis media
+F5200,Acute suppurative otitis media - tympanic membrane intact
+F5201,Acute suppurative otitis media - tympanic membrane ruptured
+F5203,Acute suppurative otitis media due to disease EC
+F520z,Acute suppurative otitis media NOS
+F521.,Chronic suppurative otitis media - tubotympanic
+F522.,Chronic suppurative otitis media - atticoantral
+F523.,Chronic suppurative otitis media NOS
+F524.,Purulent otitis media NOS
+F5240,Bilateral suppurative otitis media
+F525.,Recurrent acute otitis media
+F526.,Acute left otitis media
+F527.,Acute right otitis media
+F528.,Acute bilateral otitis media
+F52z.,Ear infection &/or otitis media NOS
+F540.,Acute myringitis without otitis media
+F551.,Adhesive otitis media
+FyuP0,[X]Other acute non-suppurative otitis media
+FyuP1,[X]Other chronic non-suppurative otitis media
+FyuP2,[X]Other chronic suppurative otitis media
+FyuP3,[X]Otitis media in bacterial diseases classified elsewhere
+FyuP4,[X]Otitis media in viral diseases classified elsewhere
+FyuP5,[X]Otitis media in other diseases classified elsewhere
+H0...,Acute respiratory infections
+H00..,(Acute nasopharyngitis or rhinitis) or (common cold)
+H01..,Sinusitis (& acute)
+H010.,Acute maxillary sinusitis
+H011.,Acute frontal sinusitis
+H012.,Acute ethmoidal sinusitis
+H013.,Acute sphenoidal sinusitis
+H01y.,Other acute sinusitis
+H01y0,Acute pansinusitis
+H01yz,Other acute sinusitis NOS
+H01z.,Acute sinusitis NOS
+H02..,Throat: [acute pharyngitis]/[sore NOS (& viral)]/[infection]
+H021.,Acute phlegmonous pharyngitis
+H023.,Acute bacterial pharyngitis
+H0230,Acute pneumococcal pharyngitis
+H0231,Acute staphylococcal pharyngitis
+H023z,Acute bacterial pharyngitis NOS
+H024.,Acute viral pharyngitis
+H02z.,Acute pharyngitis NOS
+H03..,Tonsillitis (& acute)
+H030.,Acute erythematous tonsillitis
+H031.,Acute follicular tonsillitis
+H033.,Acute catarrhal tonsillitis
+H035.,Acute bacterial tonsillitis
+H0350,Acute pneumococcal tonsillitis
+H0351,Acute staphylococcal tonsillitis
+H035z,Acute bacterial tonsillitis NOS
+H036.,Acute viral tonsillitis
+H037.,Recurrent acute tonsillitis
+H03z.,Acute tonsillitis NOS
+H040.,Acute laryngitis
+H0400,Acute oedematous laryngitis
+H0402,Acute catarrhal laryngitis
+H0403,Acute phlegmonous laryngitis
+H0404,Acute haemophilus influenzae laryngitis
+H0405,Acute pneumococcal laryngitis
+H0406,Acute suppurative laryngitis
+H040w,Acute viral laryngitis unspecified
+H040x,Acute bacterial laryngitis unspecified
+H040z,Acute laryngitis NOS
+H041.,Acute tracheitis
+H0410,Acute tracheitis without obstruction
+H0411,Acute tracheitis with obstruction
+H041z,Acute tracheitis NOS
+H042.,Laryngotracheitis (& acute)
+H0420,Acute laryngotracheitis without obstruction
+H0421,Acute laryngotracheitis with obstruction
+H042z,Acute laryngotracheitis NOS
+H043.,Epiglottitis: [viral] or [acute non streptococcal]
+H0430,Acute epiglottitis without obstruction
+H0431,Acute epiglottitis with obstruction
+H043z,Acute epiglottitis NOS
+H04z.,Acute laryngitis and tracheitis NOS
+H05..,Other acute upper respiratory infections
+H050.,Acute laryngopharyngitis
+H053.,Tracheopharyngitis
+H055.,Pharyngolaryngitis
+H05y.,Other upper respiratory infections of multiple sites
+H05z.,Upper respiratory tract infection (& viral) NOS
+H06..,Acute bronchitis and bronchiolitis
+H060.,Acute bronchitis (& wheezy)
+H0600,Acute fibrinous bronchitis
+H0601,Acute membranous bronchitis
+H0602,Acute pseudomembranous bronchitis
+H0603,Acute purulent bronchitis
+H0604,Acute croupous bronchitis
+H0605,Acute tracheobronchitis
+H0606,Acute pneumococcal bronchitis
+H0607,Acute streptococcal bronchitis
+H0608,Acute haemophilus influenzae bronchitis
+H0609,Acute Neisseria catarrhalis bronchitis
+H060B,Acute coxsackievirus bronchitis
+H060C,Acute parainfluenza virus bronchitis
+H060D,Acute respiratory syncytial virus bronchitis
+H060E,Acute bronchitis due to rhinovirus
+H060F,Acute echovirus bronchitis
+H060v,Subacute bronchitis unspecified
+H060w,Acute viral bronchitis unspecified
+H060x,Acute bacterial bronchitis unspecified
+H060z,Acute bronchitis NOS
+H061.,Acute bronchiolitis
+H0610,Acute capillary bronchiolitis
+H0612,Acute bronchiolitis with bronchospasm
+H0613,Acute exudative bronchiolitis
+H0615,Acute bronchiolitis due to respiratory syncytial virus
+H0616,Acute bronchiolitis due to other specified organisms
+H061z,Acute bronchiolitis NOS
+H06z.,Acute bronchitis or bronchiolitis NOS
+H06z0,Chest infection (& NOS)
+H06z1,Respiratory tract infection (& [acute lower] or [lower])
+H07..,Chest cold
+H0y..,Other specified acute respiratory infections
+H0z..,Acute respiratory infection NOS
+H1210,Simple chronic pharyngitis
+H13..,Chronic sinusitis
+H130.,(Maxillary sinusitis) or (chronic antritis)
+H131.,Frontal sinusitis (& chronic)
+H132.,Chronic ethmoidal sinusitis
+H133.,Chronic sphenoidal sinusitis
+H135.,Recurrent sinusitis
+H13y.,Other chronic sinusitis
+H13y0,Chronic pansinusitis
+H13y1,Pansinusitis
+H13yz,Other chronic sinusitis NOS
+H13z.,Chronic sinusitis NOS
+H14y5,Caseous tonsillitis
+H14y6,Lingular tonsillitis
+H2...,Pneumonia and influenza
+H20..,Viral pneumonia (& chest infection)
+H200.,Adenoviral pneumonia
+H201.,Pneumonia due to respiratory syncytial virus
+H202.,Parainfluenzal pneumonia
+H20y.,Viral pneumonia NEC
+H20z.,Viral pneumonia NOS
+H21..,Pneumococcal pneumonia (& lobar)
+H22..,Other bacterial pneumonia
+H220.,Pneumonia due to Klebsiella pneumoniae
+H221.,Pseudomonal pneumonia
+H222.,Haemophilus influenzae pneumonia
+H223.,Streptococcal pneumonia
+H2230,Group B streptococcal pneumonia
+H224.,Staphylococcal pneumonia
+H22y.,Pneumonia due to other specified bacteria
+H22y0,Escherichia coli pneumonia
+H22y1,Proteus pneumonia
+H22y2,Legionella pneumonia
+H22yz,Pneumonia due to bacteria NOS
+H22z.,Bacterial pneumonia NOS
+H23..,Pneumonia due to other specified organisms
+H232.,Pneumonia due to pleuropneumonia-like organism
+H23z.,Pneumonia due to specified organism NOS
+H24..,(Pneumonia) or (chest infection) with infectious diseases EC
+H240.,Measles pneumonia
+H241.,Cytomegalovirus pneumonia
+H242.,Ornithosis with pneumonia
+H243.,Pertussis pneumonia
+H244.,Tularaemia pneumonia
+H245.,Anthrax pneumonia
+H246.,Pneumonia with aspergillosis
+H247.,Pneumonia with other systemic mycoses
+H2470,Candidal pneumonia
+H2471,Pneumonia with coccidioidomycosis
+H2472,Pneumonia with histoplasmosis
+H247z,Pneumonia with systemic mycosis NOS
+H24y.,Pneumonia with other infectious diseases EC
+H24y0,Actinomycotic pneumonia
+H24y1,Nocardial pneumonia
+H24y2,Pneumocystis carinii pneumonia
+H24y3,Q fever pneumonia
+H24y5,Toxoplasma pneumonia
+H24y6,Typhoid pneumonia
+H24y7,Chickenpox pneumonia
+H24yz,Pneumonia with other infectious diseases EC NOS
+H24z.,Pneumonia with infectious diseases EC NOS
+H25..,Bronchopneumonia: [unspec organism] or [chest infect - unsp]
+H26..,Pneumonia due to unspecified organism
+H260.,Lobar pneumonia due to unspecified organism
+H27..,Influenza
+H270.,Influenzal pneumonia
+H2700,Influenza with bronchopneumonia
+H2701,"Influenza with pneumonia, influenza virus identified"
+H270z,Influenza with pneumonia NOS
+H271.,Influenza with other respiratory manifestation
+H2710,Influenza with laryngitis
+H2711,Influenza with pharyngitis
+H271z,Influenza with respiratory manifestations NOS
+H27y.,Influenza with other manifestations
+H27y0,Influenza with encephalopathy
+H27y1,Influenza with gastrointestinal tract involvement
+H27yz,Influenza with other manifestations NOS
+H27z.,(Influenza like illness) or (influenza NOS)
+H2y..,Other specified pneumonia or influenza
+H2z..,Pneumonia or influenza NOS
+H30..,Bronchitis: [unspecif (& chest infectn)] or [recurr wheezy]
+H300.,Tracheobronchitis NOS
+H301.,Laryngotracheobronchitis
+H47..,Aspiration pneumonitis
+H470.,Pneumonitis due to inhalation of food or vomitus
+H4703,Pneumonitis due to inhalation of vomitus
+H50..,Empyema (& pleural)
+H500.,Empyema with fistula (& pleural)
+H5000,Empyema necessitans
+H5001,Empyema with bronchopleural fistula
+H5002,Empyema with hepatopleural fistula
+H5003,Empyema with mediastinal fistula
+H5004,Empyema with pleural fistula NOS
+H5005,Empyema with thoracic fistula NOS
+H500z,Empyema with fistula NOS (& pleural)
+H501.,Empyema with no fistula (& pleural)
+H5010,Loculated empyema
+H5013,Lung empyema NOS
+H501z,Empyema with no fistula NOS (& pleural)
+H50z.,Empyema NOS (& pleural)
+H5109,Pneumococcal pleurisy
+H5110,Pneumococcal pleurisy with effusion
+H530.,Lung abscess
+H5300,Single lung abscess
+H5301,Multiple lung abscesses
+H5303,Abscess of lung with pneumonia
+H5400,Hypostatic pneumonia
+H5401,Hypostatic bronchopneumonia
+H56y1,Interstitial pneumonia
+H5830,Acute eosinophilic pneumonia
+H5yy.,Respiratory (infection NOS) or (other diseases of NEC)
+Hyu00,[X]Other acute sinusitis
+Hyu01,[X]Acute pharyngitis due to other specified organisms
+Hyu02,[X]Acute tonsillitis due to other specified organisms
+Hyu03,[X]Other acute upper respiratory infections/multiple sites
+Hyu04,"[X]Flu+oth respiratory manifestations,'flu virus identified"
+Hyu05,"[X]Influenza+other manifestations,influenza virus identified"
+Hyu06,"[X]Influenza+oth respiratory manifestatns,virus not identifd"
+Hyu07,"[X]Influenza with other manifestations, virus not identified"
+Hyu08,[X]Other viral pneumonia
+Hyu09,[X]Pneumonia due to other aerobic gram-negative bacteria
+Hyu0A,[X]Other bacterial pneumonia
+Hyu0B,[X]Pneumonia due to other specified infectious organisms
+Hyu0C,[X]Pneumonia in bacterial diseases classified elsewhere
+Hyu0D,[X]Pneumonia in viral diseases classified elsewhere
+Hyu0E,[X]Pneumonia in mycoses classified elsewhere
+Hyu0F,[X]Pneumonia in parasitic diseases classified elsewhere
+Hyu0G,[X]Pneumonia in other diseases classified elsewhere
+Hyu0H,"[X]Other pneumonia, organism unspecified"
+Hyu1.,[X]Other acute lower respiratory infections
+Hyu10,[X]Acute bronchitis due to other specified organisms
+Hyu11,[X]Acute bronchiolitis due to other specified organisms
+Hyu2.,[X]Other diseases of the upper respiratory tract
+Hyu22,[X]Other chronic sinusitis
+Hyu2A,[X]Other specified diseases of upper respiratory tract
+Q310.,Congenital pneumonia
+Q3100,Congenital staphylococcal pneumonia
+Q3101,Congenital group A haemolytic streptococcal pneumonia
+Q3102,Congenital group B haemolytic streptococcal pneumonia
+Q3103,Congenital Escherichia coli pneumonia
+Q3104,Congenital pseudomonal pneumonia
+Q3106,Congenital chlamydial pneumonia
+Q310y,Other specified congenital pneumonia
+Q310z,Congenital pneumonia NOS
+Qyu31,[X]Congenital pneumonia due to other bacterial agents
+Qyu32,[X]Congenital pneumonia due to other organisms
+SP131,Other aspiration pneumonia as a complication of care
+X00ik,Otitis media
+X00ip,Acute otitis media
+X00iq,Recurrent acute suppurative otitis media
+X00ir,Recurrent acute non-suppurative otitis media
+X00is,Chronic otitis media
+X00it,Chronic suppurative otitis media
+X00iu,Chronic non-suppurative otitis media
+X00iv,Otitis media with effusion
+X00iw,Otitis media with effusion - sanguinous
+X00ix,Chronic non-suppurative otitis media without effusion
+X00kv,Acute rhinitis
+X00m3,Suppurative sinusitis with complications
+X00m4,Recurrent acute sinusitis
+X00m6,Chronic anterior ethmoidal sinusitis
+X00m7,Chronic posterior ethmoidal sinusitis
+X00m8,Chronic panethmoidal sinusitis
+X00mA,Chronic frontoethmoidal sinusitis
+X00mG,Pharyngitis
+X00mH,Acute herpes simplex pharyngitis
+X00mI,Acute herpes zoster pharyngitis
+X00mJ,Enteroviral lymphonodular pharyngitis
+X00mL,Glandular fever pharyngitis
+X00mN,Meningococcal pharyngitis
+X00mP,Chlamydial pharyngitis
+X00mS,Acute pharyngeal candidiasis
+X00mq,Vincent's tonsillitis
+X00ms,Acute peritonsillitis
+X00n1,Acute simple laryngitis
+X00n2,Vincent's laryngitis
+X00n4,Acute membranous laryngitis
+X00n5,Acute subglottic laryngitis
+X00n7,Viral epiglottitis
+X00n8,Paediatric acute epiglottitis and supraglottitis
+X00n9,Adult acute epiglottitis and supraglottitis
+X1002,Acute upper respiratory infection
+X1003,Viral upper respiratory tract infection NOS
+X1004,Infection of lower respiratory tract
+X1006,Chest infection - unspecified bronchitis
+X1007,Acute bacterial bronchitis
+X1009,Acute mycoplasmal bronchitis
+X100A,Acute chlamydial bronchitis
+X100B,Acute viral bronchitis
+X100C,Acute viral bronchiolitis
+X100D,Acute bronchiolitis due to adenovirus
+X100E,Pneumonia
+X100G,Atypical pneumonia
+X100H,Bacterial pneumonia
+X100J,Pneumococcal pneumonia
+X100L,Meningococcal pneumonia
+X100M,Bronchopneumonia
+X100N,Chlamydial pneumonia
+X100O,Neonatal chlamydial pneumonia
+X100P,Fetal pneumonia
+X100R,Fungal pneumonia
+X100X,Haemorrhagic pneumonia
+X100Y,Mycobacterial pneumonia
+X100a,Neonatal pneumonia
+X100b,Pneumonia due to parasitic infestation
+X100d,Rickettsial pneumonia
+X100e,Glandular fever pneumonia
+X100f,Mononuclear interstitial pneumonia
+X100g,Herpes simplex pneumonia
+X100h,Giant cell pneumonia
+X102F,Allergic bronchopulmonary aspergillosis
+X102k,"Seasonal crypt organising pneumonia, biochemical cholestasis"
+X70Id,Fusobacterial necrotising tonsillitis
+X70Ln,Lymphonodular coxsackie pharyngitis
+X70Oj,Leishmanial pneumonia
+X70QV,Disseminated aspergillosis
+X70QW,Systemic aspergillosis
+X70Qa,Acute invasive pulmonary aspergillosis
+X70Qb,Chronic necrotising pulmonary aspergillosis
+X70Qe,Cutaneous aspergillosis
+X70Ua,Capillaria aerophila chest infection
+X73GQ,Streptococcus pneumoniae
+X73HB,Moraxella catarrhalis
+X73KI,Klebsiella aerogenes biovar pneumoniae
+X73KJ,Klebsiella pneumoniae
+X73KK,Klebsiella pneumoniae subsp ozaenae
+X73KL,Klebsiella pneumoniae subsp pneumoniae
+X73KM,Klebsiella pneumoniae subsp rhinoscleromatis
+X73RC,Chlamydia pneumoniae
+X73Rb,Haemophilus influenzae
+X73Rf,Haemophilus parainfluenzae
+X73UL,Mycoplasma
+X73UT,Mycoplasma pneumoniae
+X73k3,Adenovirus
+X73k5,Human adenovirus
+X73lD,Coronaviridae
+X73lE,Coronavirus
+X73lF,Human coronavirus
+X73lJ,Paramyxovirus
+X73lK,Parainfluenza virus type 1
+X73lL,Parainfluenza virus type 2
+X73lM,Parainfluenza virus type 3
+X73lN,Parainfluenza virus type 4
+X73lS,Pneumovirus
+X73lT,Human respiratory syncytial virus
+X73lf,Influenza virus
+X73lg,Influenza virus A and B
+X73lh,Influenza virus A
+X73li,Influenza virus B
+X73lj,Influenza virus C
+X73mO,Enterovirus
+X73mU,Human enterovirus
+X73mX,Rhinovirus
+X73mY,Human rhinovirus
+XE0Qw,Whooping cough
+XE0To,(Common specif viruses) or (infection: [named virus types])
+XE0UG,Other mycoses (& [named variants])
+XE0Xl,Common cold
+XE0Xm,Acute sinusitis
+XE0Xn,Acute pharyngitis
+XE0Xo,Acute laryngotracheitis
+XE0Xp,Acute epiglottitis (non-streptococcal)
+XE0Xq,Upper respiratory infection NOS
+XE0Xr,Acute bronchitis
+XE0Xs,Chest infection NOS
+XE0Xt,Acute lower respiratory tract infection
+XE0Y0,Chronic maxillary sinusitis
+XE0Y1,Chronic frontal sinusitis
+XE0YG,Viral pneumonia
+XE0YH,Pneumococcal lobar pneumonia
+XE0YI,Pneumonia with infectious diseases EC
+XE0YJ,Bronchopneumonia due to unspecified organism
+XE0YK,Influenza NOS
+XE0Yl,Respiratory infection: [acute] or [upper]
+XE0Yn,(Ac nasopharyng)/(com cold)/(ac coryza)/(ac rhinit)/(sniffl)
+XE0Yp,(Ac sinusitis: [NOS][ethmoidl][sphenoidl]) or ([pansinusit])
+XE0Yr,Throat: [acute pharyngitis] or [infection NOS] or [sore]
+XE0Yt,Acute: [bronchitis]/[chest infections]/[tracheobronchitis]
+XE0Yv,Ac resp infec: [NOS][pharyngotracheitis][tracheopharyngitis]
+XE0Z1,Chron sinusitis: [NOS][ethmoid][chron pansinusits][sphenoid]
+XE0ZF,Pneumonia and influenza &/or pneumonia
+XE0ZH,Pneumonia: [lobar] or [pneumococcal]
+XE0ZJ,(Influenza NOS) or (influenza-like illness)
+XE0sE,Sore throat symptom
+XE0tj,H/O: [obstructive airway disease(& chronic)] or [bronchitis]
+XE0vJ,Throat symptoms (& sore throat symptom)
+XE17C,Chronic non-suppurative otitis media with effusion - mucoid
+XE17D,Otitis media NOS
+XE19r,Nonsuppurative otitis media (& [ left] or [right])
+XE19t,(Glue ear) or (mucoid otitis media [& chronic])
+XE19z,Chronic non-suppurative otitis media NOS
+XE1A1,Supp otitis media &/or ([left][right]) &/or purulen otit med
+XE2QD,Acute otitis media with effusion
+XE2aC,Acute tonsillitis
+XE2uH,Adenovirus infection
+XE2uI,Rhinovirus infection
+XE2vk,Otalgia
+XE2vl,Bordetella pertussis
+XE2vn,Bordetella parapertussis
+XE2wM,Pleural empyema
+XE2wN,Pleural empyema with fistula
+XE2wP,Pleural empyema with no fistula
+XE2wR,Pleural empyema NOS
+XM00D,Whooping cough-like syndrome
+XM0rv,Pneumonia NOS
+XM0rz,Influenza-like illness
+XM1QE,Ear infection
+XM1QF,Non-suppurative otitis media
+XM1QH,Sinusitis
+XM1QI,Maxillary sinusitis
+XM1QJ,Frontal sinusitis
+XM1QM,Sore throat - chronic
+XM1QS,Laryngotracheitis
+XM1QT,Acute fibrinous laryngotracheobronchitis
+XM1QV,Infection of lower respiratory tract and mediastinum
+XM1QW,Respiratory tract infection
+XM1QX,Acute wheezy bronchitis
+XM1R4,H/O: bronchitis
+XSCET,Bacterial infection due to Klebsiella pneumoniae
+XSDOK,Bronchiolitis
+Xa05b,Acute laryngitis and tracheitis
+Xa0B7,Congenital viral pneumonia
+Xa0B8,Congenital bacterial pneumonia
+Xa0B9,Acquired neonatal pneumonia
+Xa0BB,Neonatal aspiration pneumonia
+Xa0BK,Respiratory syncytial virus infection
+Xa0BL,Congenital syphilitic rhinitis
+Xa0Y7,Non-tuberculous mycobacterial pneumonia
+Xa0lW,Acute laryngotracheobronchitis
+Xa0lY,Lobar pneumonia
+Xa0lZ,Asthmatic bronchitis
+Xa1sb,Viral upper respiratory tract infection
+Xa2o8,Infection of the upper respiratory tract
+Xa7I0,Tonsillitis
+Xa7nL,Basal pneumonia
+Xa7nM,Left lower zone pneumonia
+Xa7nN,Right lower zone pneumonia
+Xa7nP,Left upper zone pneumonia
+Xa7nT,Right middle zone pneumonia
+Xa7nU,Right upper zone pneumonia
+Xa86D,Acute viral laryngotracheitis
+Xa87h,Tracheitis
+Xa8Hm,Ear pain
+Xa8VO,Parainfluenza virus
+Xa9Bk,Otitis media with effusion - serous
+Xa9Bl,Otitis media with effusion - mucoid
+Xa9Bm,Otitis media with effusion - purulent
+Xa9Bt,Acute epiglottitis and supraglottitis
+Xa9Bu,Acute lingual tonsillitis
+Xa9zW,Sore throat
+XaBE9,Basal pneumonia due to unspecified organism
+XaBM8,Recurrent chest infection
+XaBfJ,Secondary bacterial pneumonia
+XaDcB,Bacterial respiratory infection
+XaDcC,Bacterial upper respiratory infection
+XaDcD,Bacterial lower respiratory infection
+XaDcL,Bacterial ear infection
+XaDcT,Viral respiratory infection
+XaDcV,Viral lower respiratory infection
+XaDcY,Viral ear infection
+XaDcm,Fungal respiratory infection
+XaDmU,Infective otitis media
+XaDsa,Infective pneumonia
+XaDsb,Congenital infective pneumonia
+XaDtB,Acute infective bronchitis
+XaDtP,Bronchitis
+XaDtg,Tracheobronchitis
+XaDth,Acute infective tracheobronchitis
+XaDuG,Infective pharyngitis
+XaDuH,Infective laryngitis
+XaDuI,Infective tonsillitis
+XaE01,Empyema
+XaFrU,Postoperative pneumonia
+XaIBK,Influenza-like symptoms
+XaIO0,Feverish cold
+XaJEl,Bilateral pneumonia
+XaKyZ,Acute obstructive laryngitis
+XaMih,Avian influenza
+XaNkV,Acute rhinosinusitis
+XaP9c,History of recurrent tonsillitis
+XaPIN,Influenza H1 virus detected
+XaPIO,Influenza H2 virus detected
+XaPIP,Influenza H3 virus detected
+XaPIQ,Influenza H5 virus detected
+XaPIR,"Influenza A virus, other or untyped strain detected"
+XaPIS,Influenza B virus detected
+XaPOa,Respiratory syncytial virus A detected
+XaPOb,Respiratory syncytial virus B detected
+XaPOc,Respiratory syncytial virus untyped strain detected
+XaPOd,Human metapneumovirus detected
+XaPOe,Human bocavirus detected
+XaPOj,Human rhinovirus detected
+XaPOk,Human parainfluenza virus detected
+XaPOl,Human adenovirus detected
+XaPOm,Human enterovirus detected
+XaPOn,Other respiratory virus detected
+XaPOo,Mycoplasma pneumoniae detected
+XaQQp,Influenza due to Influenza A virus subtype H1N1
+XaQSm,Suspected influenza A virus subtype H1N1 infection
+XaQVc,Possible influenza A virus H1N1 subtype
+XaQVd,Influenza A virus H1N1 subtype detected
+XaQeN,History of tonsillitis
+XaQna,History of acute lower respiratory tract infection
+XaREU,Aspergillus bronchitis
+XaREw,History of bronchiolitis
+XaXlE,Respiratory bronchiolitis associated interstitial lung dis
+XaYYt,Acute bronchiolitis due to human metapneumovirus
+XaYYu,Pneumonia due to human metapneumovirus
+XaZ1k,Community acquired pneumonia
+XaZ1l,Hospital acquired pneumonia
+XaaNq,Suspected coronavirus infection
