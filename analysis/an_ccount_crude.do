@@ -29,8 +29,8 @@ log using ./logs/an_ccount_crude, replace t
 
 
 clear
-*use "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\analysis\cr_create_analysis_dataset"
-use ./analysis/cr_create_analysis_dataset.dta
+*use "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\analysis\cr_analysis_dataset"
+use ./analysis/cr_analysis_dataset.dta
 
 
 gen test_censor = date("01/01/2021", "DMY")
@@ -95,19 +95,14 @@ graph export ./output/tpp_sgss_counts.svg, name(tpp_sgss) as(svg) replace
 * Graph COVID diagnoses in TPP
 line tppclin_n1 tppclin_dt1 || line tpptest_n1 tpptest_dt1 || line tppseq_n1 tppseq_dt1, name(tpp_type) ytitle("Daily COVID diagnoses")
 graph export ./output/tpp_type_counts.svg, name(tpp_type) as(svg) replace
-			
-/*
-gen covid_incohort_wk = week(covid_incohort)
-
-table covid_incohort_wk , contents(count covid_incohort) row col
-
-bysort utla: egen n_covid = count(covid_incohort)
-summ n_covid, d
-*/
-
 
 
 * Get case counts and denominator by region
+
+tab stp
+disp "Number of unique STPs = " `r(r)'
+
+table stp, contents(count incohort_date_tpp count patient_id)
 
 tab utla
 disp "Number of unique UTLAs = " `r(r)'
@@ -115,16 +110,12 @@ disp "Number of unique UTLAs = " `r(r)'
 table utla_name, contents(count incohort_date_tpp count patient_id)
 
 
-* Regroup UTLAs with small case numbers
-
-
-
 
 * Fit fractional polynomials to case counts by region
 
-fp <tpp_dt1>: regress tpp_n1 <tpp_dt1>
+fp <tpp_dt1>, dimension(3): regress tpp_n1 <tpp_dt1>
 
-regress tpp_n1 tpp_dt1_1 tpp_dt1_2
+regress tpp_n1 tpp_dt1_1 tpp_dt1_2 tpp_dt1_3
 predict p_tpp
 
 line tpp_n1 tpp_dt1 || line p_tpp tpp_dt1, name(tpp_fp) ytitle("Daily COVID diagnoses")

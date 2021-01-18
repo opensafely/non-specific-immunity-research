@@ -36,6 +36,12 @@
       "downloaded_at": "2021-01-05 15:49:46.610946Z",
       "sha": "3b1ef2cedca0107ce3af2a16fd212c01a81c863e"
     },
+    "user-dgrint-respiratory-tract-infection-dev.csv": {
+      "id": "user/dgrint/respiratory-tract-infection-dev/29f3d48e",
+      "url": "https://codelists.opensafely.org/codelist/user/dgrint/respiratory-tract-infection-dev/29f3d48e/",
+      "downloaded_at": "2021-01-18 16:58:16.420663Z",
+      "sha": "6be37933d68828050045bbe1c01af309e2363676"
+    },
     "opensafely-copd-infection.csv": {
       "id": "opensafely/copd-infection/2020-05-16",
       "url": "https://codelists.opensafely.org/codelist/opensafely/copd-infection/2020-05-16/",

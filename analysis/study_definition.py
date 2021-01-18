@@ -121,8 +121,15 @@ study = StudyDefinition(
         return_expectations={"int": {"distribution": "normal", "mean": 2, "stddev": 1}, "incidence": 0.2},
     ),    
 
-    lrti_0900=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_in_period=patients.with_these_clinical_events(
+        rti_codes,
+        between=["2020-06-09", "2020-12-01"],
+        returning="number_of_matches_in_period",
+        return_expectations={"int": {"distribution": "normal", "mean": 2, "stddev": 1}, "incidence": 0.2},
+    ),    
+
+    rti_0900=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-06-09", "2020-08-31"],
         returning="date",
         find_last_match_in_period=True,
@@ -130,8 +137,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-06-06", "latest": "2020-08-31"}, "incidence" : 0.1},
     ),    
 
-    lrti_0907=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_0907=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-09-01", "2020-09-07"],
         returning="date",
         find_last_match_in_period=True,
@@ -139,8 +146,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-09-07", "latest": "2020-09-13"}, "incidence" : 0.03},
     ),   
 
-    lrti_0914=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_0914=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-09-08", "2020-09-14"],
         returning="date",
         find_last_match_in_period=True,
@@ -148,8 +155,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-09-08", "latest": "2020-09-14"}, "incidence" : 0.03},
     ),   
 
-    lrti_0921=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_0921=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-09-15", "2020-09-21"],
         returning="date",
         find_last_match_in_period=True,
@@ -157,8 +164,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-09-15", "latest": "2020-09-21"}, "incidence" : 0.03},
     ),   
 
-    lrti_0928=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_0928=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-09-22", "2020-09-28"],
         returning="date",
         find_last_match_in_period=True,
@@ -166,8 +173,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-09-22", "latest": "2020-09-28"}, "incidence" : 0.03},
     ),   
 
-    lrti_1005=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_1005=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-09-29", "2020-10-05"],
         returning="date",
         find_last_match_in_period=True,
@@ -175,8 +182,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-09-29", "latest": "2020-10-05"}, "incidence" : 0.03},
     ),   
 
-    lrti_1012=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_1012=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-10-06", "2020-10-12"],
         returning="date",
         find_last_match_in_period=True,
@@ -184,8 +191,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-10-06", "latest": "2020-10-12"}, "incidence" : 0.03},
     ),   
 
-    lrti_1019=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_1019=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-10-13", "2020-10-19"],
         returning="date",
         find_last_match_in_period=True,
@@ -193,8 +200,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-10-13", "latest": "2020-10-19"}, "incidence" : 0.03},
     ),   
 
-    lrti_1026=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_1026=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-10-20", "2020-10-26"],
         returning="date",
         find_last_match_in_period=True,
@@ -202,8 +209,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-10-20", "latest": "2020-10-26"}, "incidence" : 0.03},
     ),  
 
-    lrti_1102=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_1102=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-10-27", "2020-11-02"],
         returning="date",
         find_last_match_in_period=True,
@@ -211,8 +218,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-10-27", "latest": "2020-11-02"}, "incidence" : 0.03},
     ),  
 
-    lrti_1109=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_1109=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-11-03", "2020-11-09"],
         returning="date",
         find_last_match_in_period=True,
@@ -220,8 +227,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-11-03", "latest": "2020-11-09"}, "incidence" : 0.03},
     ),  
 
-    lrti_1116=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_1116=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-11-10", "2020-11-16"],
         returning="date",
         find_last_match_in_period=True,
@@ -229,8 +236,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-11-10", "latest": "2020-11-16"}, "incidence" : 0.03},
     ),  
 
-    lrti_1123=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_1123=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-11-17", "2020-11-23"],
         returning="date",
         find_last_match_in_period=True,
@@ -238,8 +245,8 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-11-17", "latest": "2020-11-23"}, "incidence" : 0.03},
     ),  
 
-    lrti_1130=patients.with_these_clinical_events(
-        lrti_codes,
+    rti_1130=patients.with_these_clinical_events(
+        rti_codes,
         between=["2020-11-24", "2020-11-30"],
         returning="date",
         find_last_match_in_period=True,
