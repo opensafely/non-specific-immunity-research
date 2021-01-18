@@ -40,32 +40,32 @@ gen test_censor = date("01/01/2021", "DMY")
 * Overall
 egen incohort_date_covid = rowmin(covid_tpp_probable first_pos_test_sgss)
 replace incohort_date_covid = . if incohort_date_covid < enter_date
-replace incohort_date_covid = . if incohort_date_covid > test_censor
+replace incohort_date_covid = . if incohort_date_covid > censor_date
 
 * TPP probable
 gen incohort_date_tpp = covid_tpp_probable
 replace incohort_date_tpp = . if incohort_date_tpp < enter_date
-replace incohort_date_tpp = . if incohort_date_tpp > test_censor
+replace incohort_date_tpp = . if incohort_date_tpp > censor_date
 
 * TPP clinical
 gen incohort_date_tppclin = covid_tpp_clin
 replace incohort_date_tppclin = . if incohort_date_tppclin < enter_date
-replace incohort_date_tppclin = . if incohort_date_tppclin > test_censor
+replace incohort_date_tppclin = . if incohort_date_tppclin > censor_date
 
 * TPP test
 gen incohort_date_tpptest = covid_tpp_test
 replace incohort_date_tpptest = . if incohort_date_tpptest < enter_date
-replace incohort_date_tpptest = . if incohort_date_tpptest > test_censor
+replace incohort_date_tpptest = . if incohort_date_tpptest > censor_date
 
 * TPP seq
 gen incohort_date_tppseq = covid_tpp_seq
 replace incohort_date_tppseq = . if incohort_date_tppseq < enter_date
-replace incohort_date_tppseq = . if incohort_date_tppseq > test_censor
+replace incohort_date_tppseq = . if incohort_date_tppseq > censor_date
 
 * SGSS
 gen incohort_date_sgss = first_pos_test_sgss
 replace incohort_date_sgss = . if incohort_date_sgss < enter_date
-replace incohort_date_sgss = . if incohort_date_sgss > test_censor
+replace incohort_date_sgss = . if incohort_date_sgss > censor_date
 
 format %td incohort_date_*
 
@@ -106,6 +106,25 @@ summ n_covid, d
 */
 
 
+
+* Get case counts and denominator by region
+
+tab utla
+disp "Number of unique UTLAs = " `r(r)'
+
+table utla_name, contents(count incohort_date_tpp count patient_id)
+
+
+
+* Fit fractional polynomials to case counts by region
+
+fp <tpp_dt1>: regress tpp_n1 <tpp_dt1>
+
+regress tpp_n1 tpp_dt1_1 tpp_dt1_1
+predict p_tpp
+
+line tpp_n1 tpp_dt1 || line p_tpp tpp_dt1, name(tpp_fp) ytitle("Daily COVID diagnoses")
+graph export ./output/tpp_fp.svg, name(tpp_fp) as(svg) replace
 
 
 log close

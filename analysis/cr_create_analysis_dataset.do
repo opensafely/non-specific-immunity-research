@@ -25,8 +25,9 @@ set linesize 100
 cap log close
 log using ./logs/cr_create_analysis_dataset, replace t
 
-*import delimited "./lookups/MSOA_lookup.csv", varnames(1) clear
-*save "./lookups/MSOA_lookup", replace
+*import delimited "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\lookups\MSOA_lookup.csv", varnames(1) clear
+*order msoa, first
+*save "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\lookups\MSOA_lookup", replace
 *import delimited "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\output\input.csv", clear
 
 clear
@@ -725,6 +726,7 @@ label var ethnicity_16_combinemixed		"Ethnicity detailed with mixed groups combi
 label var stp 							"Sustainability and Transformation Partnership"
 label var msoa	 						"Geographical region: MSOA"
 label var utla							"Geographical region: UTLA"
+label var utla_name						"Geographical region: UTLA name"
 
 label var hba1ccat						"Categorised hba1c"
 label var egfr_cat						"Calculated eGFR"
