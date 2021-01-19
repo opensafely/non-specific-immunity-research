@@ -37,6 +37,15 @@ actions:
         figure2: output/tpp_type_counts.svg
         figure3: output/tpp_fp.svg
 
+  anCOX:
+    run: stata-mp:latest analysis/an_cox_models.do
+    needs: [crMAIN]
+    outputs:
+      moderately_sensitive:
+        log: logs/an_cox_models.log
+        figure1: output/unadj_cox_haz.svg
+        figure2: output/unadj_utla_cox_haz.svg
+
   run_all:
     needs: [feasibility]
     # In order to be valid this action needs to define a run commmand and some
