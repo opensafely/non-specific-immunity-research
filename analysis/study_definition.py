@@ -112,6 +112,21 @@ study = StudyDefinition(
         return_expectations={"date": {"earliest": "2020-03-01"}, "incidence" : 0.95},
    ),
 
+    # Any COVID vaccination (first dose)
+    covid_vacc_date=patients.with_tpp_vaccination_record(
+        target_disease_matches="SARS-2 CORONAVIRUS",
+        on_or_after="2020-12-01",  # check all december to date
+        find_first_match_in_period=True,
+        returning="date",
+        date_format="YYYY-MM-DD",
+        return_expectations={
+            "date": {
+                "earliest": "2020-12-08",  # first vaccine administered on the 8/12
+                "latest": "2021-01-31",
+            },
+                "incidence":0.2
+        },
+    ),
 
     # EXPOSURES
     lrti_in_period=patients.with_these_clinical_events(
