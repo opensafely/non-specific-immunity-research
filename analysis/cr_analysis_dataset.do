@@ -80,6 +80,7 @@ drop if inlist(sex, "I", "U")
 * Outcomes
 foreach var of varlist 	dereg_date						///
 						died_date_ons 					///
+						covid_vacc_date					///
 						covid_tpp_probable				///
 						covid_tpp_clin					///
 						covid_tpp_test					///
@@ -723,20 +724,23 @@ format %d enter_date censor_date
 /*   Outcomes   */
 * Binary indicators for covid, hospital admission, and death
 gen covid_diag 		= (covid_tpp_probable < .)
+gen sgss_diag		= (first_pos_test_sgss < .)
 
 
 /*  Create survival times  */
-* Survival time = last followup date (first: end study, death, or that outcome)
-gen stime_covid_diag  	= min(censor_date, covid_tpp_probable)
+* Survival time = last followup date (first: censor, vaccination, or outcome)
+gen cox_covid_date  	= min(censor_date, covid_vacc_date, covid_tpp_probable)
+gen cox_sgss_date  	= min(censor_date, covid_vacc_date, first_pos_test_sgss)
+
 
 * If outcome was after censoring occurred, set to zero
-replace covid_diag 		= 0 if (covid_tpp_probable > censor_date) 
+replace covid_diag 		= 0 if (covid_tpp_probable > cox_covid_date)
+replace sgss_diag 		= 0 if (first_pos_test_sgss > cox_sgss_date) 
+
 
 
 * Format date variables
-format 	stime* %td 
-format	stime* 				///
-		covid_tpp_probable %td 
+format cox_covid_date cox_sgss_date covid_tpp_probable first_pos_test_sgss %td 
 
 		
 		
@@ -849,6 +853,7 @@ label var temporary_immunodeficiency_date "Temporary immunosuppression, date"
 label var dialysis						"Dialysis"
 
 * Dates
+label var covid_vacc_date				"Date of first covid vaccination"
 label var covid_tpp_probable			"Date of covid diagnosis TPP"
 label var covid_tpp_clin				"Date of covid diagnosis CLIN"
 label var covid_tpp_test				"Date of covid diagnosis TEST"
@@ -861,11 +866,10 @@ label var enter_date					"Date of study entry"
 label var censor_date					"Date of study exit"
 
 label var covid_diag					"Failure/censoring indicator for outcome: covid diagnosis"
+label var cox_covid_date	 			"Date; outcome covid diagnosis"
 
-* Survival times
-label var  stime_covid_diag 			"Survival time (date); outcome covid diagnosis"
-
-
+label var sgss_diag						"Failure/censoring indicator for outcome: SGSS covid diagnosis"
+label var cox_sgss_date	 				"Date; outcome SGSS covid diagnosis"
 
 
 ***************
@@ -882,7 +886,7 @@ keep `r(varlist)'
 ***************
 
 sort patient_id
-label data "Viral competition 18-01-2021"
+label data "Viral competition 19-01-2021"
 
 save ./analysis/cr_analysis_dataset.dta, replace
 
