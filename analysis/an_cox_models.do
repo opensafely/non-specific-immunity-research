@@ -111,7 +111,7 @@ graph export ./output/utla_haz.svg, name(utla_haz) as(svg) replace
 * Weeks
 stcox ib1.exp_week, base strata(utla_group)
 
-sts graph , haz by(exp_week) width(5 5 5 5 5 5 5 5 5 5 5 5)	///
+sts graph , haz by(exp_week) width(5 5 5 5 5 5 5 5 5 5 5 5 5 5)	///
 			xlabel(1 "01SEP" 31 "01OCT" 62 "01NOV" 91 "01DEC")	///
 			legend(label(1 "pre-RTI") label(2 "Week 1") label(3 "Week 2") label(4 "Week 3") label(5 "Week 4") ///
 					label(6 "Week 5") label(7 "Week 6") label(8 "Week 7") label(9 "Week 8") label(10 "Week 9") ///
@@ -120,7 +120,7 @@ sts graph , haz by(exp_week) width(5 5 5 5 5 5 5 5 5 5 5 5)	///
 			
 graph export ./output/unadj_utla_cox_week.svg, name(unadj_utla_cox_week) as(svg) replace
 
-sts graph , haz by(exp_week) width(5 5 5 5 5 5 5 5 5 5 5 5)	///
+sts graph , haz by(exp_week) width(5 5 5 5 5 5 5 5 5 5 5 5 5 5)	///
 			xlabel(1 "01SEP" 31 "01OCT" 62 "01NOV" 91 "01DEC")	///
 			legend(off) ///
 			name(unadj_utla_cox_week1)
