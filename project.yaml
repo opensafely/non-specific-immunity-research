@@ -27,6 +27,13 @@ actions:
       highly_sensitive:
         data: analysis/cr_analysis_dataset.dta
 
+  anSTP:
+    run: stata-mp:latest analysis/an_stp.do
+    needs: [generate_cohort]
+    outputs:
+      moderately_sensitive:
+        log: logs/an_stp.log
+
   anCASE:
     run: stata-mp:latest analysis/an_ccount_crude.do
     needs: [crMAIN]
