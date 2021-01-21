@@ -16,6 +16,10 @@
       "created_by_action": "anCOX",
       "privacy_level": "moderately_sensitive"
     },
+    "logs/an_stp.log": {
+      "created_by_action": "anSTP",
+      "privacy_level": "moderately_sensitive"
+    },
     "logs/cr_analysis_dataset.log": {
       "created_by_action": "crMAIN",
       "privacy_level": "moderately_sensitive"
@@ -118,6 +122,15 @@
       "run_by_user": "EIDEDGRI",
       "created_at": "2021-01-20T00:02:25Z",
       "completed_at": "2021-01-20T00:03:49Z"
+    },
+    "anSTP": {
+      "state": "succeeded",
+      "commit": "none",
+      "docker_image_id": "sha256:e4a676ff497b1550742032051cce1ba5502f65b172e86e4d82aadbaa1e056935",
+      "job_id": "o7ryknez3w776sld",
+      "run_by_user": "EIDEDGRI",
+      "created_at": "2021-01-21T10:29:46Z",
+      "completed_at": "2021-01-21T10:30:07Z"
     }
   }
 }
