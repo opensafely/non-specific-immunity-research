@@ -16,7 +16,7 @@ actions:
     outputs:
       moderately_sensitive:
         log: logs/00_Test_runs_and_feasibility.log
-#        figure1: output/00_spells.svg
+        figure1: output/00_spells.svg
 
   crMAIN:
     run: stata-mp:latest analysis/cr_analysis_dataset.do

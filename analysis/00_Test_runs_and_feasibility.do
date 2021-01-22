@@ -20,7 +20,7 @@ log using ./logs/00_Test_runs_and_feasibility, replace t
 
 set linesize 150
 
-/*
+
 
 *cd C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research
 
@@ -29,6 +29,7 @@ set linesize 150
 *import delimited "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\output\input.csv", clear
 import delimited ./output/input.csv, clear
 
+/*
 merge m:1 msoa using ./lookups/MSOA_lookup
 drop if _merge==2
 drop _merge
@@ -66,6 +67,7 @@ tab agegroup
 
 drop if !inrange(agegroup,1,9)
 
+*/
 
 /* === Dates === */
 
@@ -86,13 +88,14 @@ foreach var of varlist `r(varlist)' {
 	gen `var'_week=week(`var') if year(`var')==2020
 	
 	* XXX Year_flag indicates error in dates XXX
-	tab `var'_eflag, m
+	*tab `var'_eflag, m
 
 }
 
 drop *_eflag
 
 * Recode lrti exposures to dates from the strings
+/*
 
 ds *lrti*, has(type string)
 
@@ -106,7 +109,7 @@ foreach var of varlist `r(varlist)' {
 	drop `var'_dstr
 }
 
-/*
+
 
 /* === Exposures === */
 
@@ -125,7 +128,7 @@ foreach var of varlist `r(varlist)' {
 	tab had_c_lrti
 	
 	summ c_lrti_in_period if c_lrti_in_period > 0, d
-*/
+
 	
 /* === Outcomes === */
 
@@ -168,7 +171,8 @@ foreach var of varlist `r(varlist)' {
 	*tab had_c_lrti icu
 
 	table covid_icu_date_week agegroup if covid_icu_date_week > 35, contents(count covid_icu_date) row col
-	
+
+*/
 	
 * Hospital spell duration
 	gen spell_days=covid_discharge_date-covid_admission_date
@@ -185,7 +189,8 @@ foreach var of varlist `r(varlist)' {
 	summ spell_days if month(covid_admission_date)==9, d
 	summ spell_days if month(covid_admission_date)==10, d
 	summ spell_days if month(covid_admission_date)==11, d
-	
+	summ spell_days if month(covid_admission_date)==12, d
+
 	gen month=month(covid_admission_date)
 
 	gen spells_60=spell_days
