@@ -1,6 +1,6 @@
-2021-01-19T23:49:34.456345700Z Generating cohort for study_definition...
-2021-01-19T23:49:34.456390400Z Running. Please wait...
-2021-01-19T23:49:41.672021100Z Successfully created cohort and covariates at output/input.csv
+2021-01-22T19:42:33.034423800Z Generating cohort for study_definition...
+2021-01-22T19:42:33.034600600Z Running. Please wait...
+2021-01-22T19:42:42.265015900Z Successfully created cohort and covariates at output/input.csv
 
 
 state: succeeded
@@ -8,9 +8,9 @@ commit: none
 docker_image_id: sha256:455ef765e7756c41752f553a92155a46a415b4efda50a56d35a67b1161dba66e
 job_id: nl453jfd7zafx5o2
 run_by_user: EIDEDGRI
-created_at: 2021-01-19T23:49:17Z
-started_at: 2021-01-19T23:49:29Z
-completed_at: 2021-01-19T23:49:43Z
+created_at: 2021-01-22T19:42:15Z
+started_at: 2021-01-22T19:42:29Z
+completed_at: 2021-01-22T19:42:44Z
 
 Completed successfully
 

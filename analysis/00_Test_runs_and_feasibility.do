@@ -84,15 +84,15 @@ foreach var of varlist `r(varlist)' {
 	format `var' %td
 	
 	*Week of year
-	gen `var'_eflag=1 if !inlist(year(`var'),2020,.)
-	gen `var'_week=week(`var') if year(`var')==2020
+	*gen `var'_eflag=1 if !inlist(year(`var'),2020,.)
+	gen `var'_week=week(`var') if inlist(year(`var'),2020,2021)
 	
 	* XXX Year_flag indicates error in dates XXX
 	*tab `var'_eflag, m
 
 }
 
-drop *_eflag
+*drop *_eflag
 
 * Recode lrti exposures to dates from the strings
 /*
@@ -177,6 +177,10 @@ foreach var of varlist `r(varlist)' {
 * Hospital spell duration
 	gen spell_days=covid_discharge_date-covid_admission_date
 	
+	* Last hospital discharge
+	egen max_discharge = max(covid_discharge_date)
+	disp "Last hospital discharge for COVID admission " %td max_discharge
+	
 	* Missing discharge dates
 	count if covid_admission_date != . & spell_days==.
 	
@@ -196,22 +200,23 @@ foreach var of varlist `r(varlist)' {
 	gen spells_60=spell_days
 	replace spells_60=. if spell_days > 60
 	
-	graph box spells_60 if month > 3, over(month) ylabel(0 (15) 60) name(spells)
+	graph box spells_60 if month > 2, over(month) ylabel(0 (15) 60) name(spells)
 	graph export ./output/00_spells.svg, name(spells) as(svg)	
 	
 		
-/*
+
 
 * Death
 	gen died=0
 	replace died=1 if died_date_ons !=.
 	
-	gen cdied=0
-	replace cdied=1 if died_ons_covid_flag_any==1
+	tab died_date_ons_week
+	
+	*gen cdied=0
+	*replace cdied=1 if died_ons_covid_flag_any==1
 
-	table died_date_ons_week agegroup if died_date_ons_week > 35, contents(count died_ons_covid_flag_any) row col
 
-
+/*
 	
 /* === Exposures over time === */
 
