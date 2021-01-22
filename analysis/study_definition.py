@@ -97,6 +97,7 @@ study = StudyDefinition(
    
     ### Admission to hospital - COVID diagnosis to be defined later
     covid_admission_date=patients.admitted_to_hospital(
+        with_these_diagnoses=covid_codelist,
         returning= "date_admitted" , 
         on_or_after="2020-02-01",
         find_first_match_in_period=True,  
@@ -105,6 +106,7 @@ study = StudyDefinition(
    ),
 
     covid_discharge_date=patients.admitted_to_hospital(
+        with_these_diagnoses=covid_codelist,
         returning= "date_discharged" ,
         on_or_after="2020-02-01",
         find_first_match_in_period=True,  
