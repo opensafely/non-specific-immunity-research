@@ -200,7 +200,9 @@ foreach var of varlist `r(varlist)' {
 	gen spells_60=spell_days
 	replace spells_60=. if spell_days > 60
 	
-	graph box spells_60 if month > 2, over(month) ylabel(0 (15) 60) name(spells)
+	graph box spells_60 if month > 2, over(month) ylabel(0 (15) 60) name(spells) ///
+			title("Median COVID hospital spell duration by month of 2020" "APCS SUS cut: 5th Jan 21" "Last hospital discharge: 30th November")	///
+			ytitle("Spell duration (Days)")
 	graph export ./output/00_spells.svg, name(spells) as(svg)	
 	
 		
