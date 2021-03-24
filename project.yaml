@@ -59,16 +59,3 @@ actions:
         figure6: output/unadj_utla_sgss_haz.svg
         figure7: output/unadj_utla_sgss_week.svg
         figure8: output/unadj_utla_sgss_week_nl.svg
-
-
-
-  run_all:
-    needs: [feasibility]
-    # In order to be valid this action needs to define a run commmand and some
-    # output. We don't really care what these are but the below does the trick.
-    # In a future release of the platform, this special action won't need to be
-    # defined at all.
-    run: cohortextractor:latest --version
-    outputs:
-      moderately_sensitive:
-        whatever: project.yaml

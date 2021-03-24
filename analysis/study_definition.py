@@ -127,7 +127,7 @@ study = StudyDefinition(
                 "latest": "2021-01-31",
             },
                 "incidence":0.2
-        },
+        	},
     ),
 
     # EXPOSURES
@@ -152,7 +152,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-06-06", "latest": "2020-08-31"}, "incidence" : 0.1},
-    ),    
+    ),
+
+    neg_0900=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_0900 - 5 days", "rti_0900 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),    
 
     rti_0907=patients.with_these_clinical_events(
         rti_codes,
@@ -161,7 +171,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-09-07", "latest": "2020-09-13"}, "incidence" : 0.03},
-    ),   
+    ),
+
+    neg_0907=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_0907 - 5 days", "rti_0907 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),     
 
     rti_0914=patients.with_these_clinical_events(
         rti_codes,
@@ -170,7 +190,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-09-08", "latest": "2020-09-14"}, "incidence" : 0.03},
-    ),   
+    ),
+
+    neg_0914=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_0914 - 5 days", "rti_0914 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),     
 
     rti_0921=patients.with_these_clinical_events(
         rti_codes,
@@ -179,7 +209,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-09-15", "latest": "2020-09-21"}, "incidence" : 0.03},
-    ),   
+    ),
+
+    neg_0921=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_0921 - 5 days", "rti_0921 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),     
 
     rti_0928=patients.with_these_clinical_events(
         rti_codes,
@@ -188,7 +228,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-09-22", "latest": "2020-09-28"}, "incidence" : 0.03},
-    ),   
+    ),
+
+    neg_0928=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_0928 - 5 days", "rti_0928 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),     
 
     rti_1005=patients.with_these_clinical_events(
         rti_codes,
@@ -197,7 +247,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-09-29", "latest": "2020-10-05"}, "incidence" : 0.03},
-    ),   
+    ),
+
+    neg_1005=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_1005 - 5 days", "rti_1005 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),     
 
     rti_1012=patients.with_these_clinical_events(
         rti_codes,
@@ -206,7 +266,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-10-06", "latest": "2020-10-12"}, "incidence" : 0.03},
-    ),   
+    ),
+
+    neg_1012=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_1012 - 5 days", "rti_1012 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),   
 
     rti_1019=patients.with_these_clinical_events(
         rti_codes,
@@ -215,7 +285,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-10-13", "latest": "2020-10-19"}, "incidence" : 0.03},
-    ),   
+    ),
+
+    neg_1019=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_1019 - 5 days", "rti_1019 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),   
 
     rti_1026=patients.with_these_clinical_events(
         rti_codes,
@@ -224,7 +304,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-10-20", "latest": "2020-10-26"}, "incidence" : 0.03},
-    ),  
+    ),
+
+    neg_1026=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_1026 - 5 days", "rti_1026 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),  
 
     rti_1102=patients.with_these_clinical_events(
         rti_codes,
@@ -233,7 +323,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-10-27", "latest": "2020-11-02"}, "incidence" : 0.03},
-    ),  
+    ),
+
+    neg_1102=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_1102 - 5 days", "rti_1102 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),  
 
     rti_1109=patients.with_these_clinical_events(
         rti_codes,
@@ -242,7 +342,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-11-03", "latest": "2020-11-09"}, "incidence" : 0.03},
-    ),  
+    ),
+
+    neg_1109=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_1109 - 5 days", "rti_1109 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),  
 
     rti_1116=patients.with_these_clinical_events(
         rti_codes,
@@ -251,7 +361,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-11-10", "latest": "2020-11-16"}, "incidence" : 0.03},
-    ),  
+    ),
+
+    neg_1116=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_1116 - 5 days", "rti_1116 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),  
 
     rti_1123=patients.with_these_clinical_events(
         rti_codes,
@@ -260,7 +380,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-11-17", "latest": "2020-11-23"}, "incidence" : 0.03},
-    ),  
+    ),
+
+    neg_1123=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_1123 - 5 days", "rti_1123 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),  
 
     rti_1130=patients.with_these_clinical_events(
         rti_codes,
@@ -269,7 +399,17 @@ study = StudyDefinition(
         find_last_match_in_period=True,
         date_format="YYYY-MM-DD",
         return_expectations={"date": {"earliest": "2020-11-24", "latest": "2020-11-30"}, "incidence" : 0.03},
-    ),  
+    ),
+
+    neg_1130=patients.with_test_result_in_sgss(
+    	pathogen="SARS-CoV-2",
+    	test_result="negative",
+    	between=["rti_1130 - 5 days", "rti_1130 + 5 days"],
+    	returning="binary_flag",
+        find_last_match_in_period=True,
+    	restrict_to_earliest_specimen_date=False,
+    	return_expectations={"incidence" : 0.5},
+	),  
 
 
     ## DEMOGRAPHIC COVARIATES
