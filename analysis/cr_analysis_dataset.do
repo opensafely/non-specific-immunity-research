@@ -25,11 +25,6 @@ set linesize 100
 cap log close
 log using ./logs/cr_analysis_dataset, replace t
 
-*import delimited "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\lookups\MSOA_lookup.csv", varnames(1) clear
-*order msoa, first
-*save "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\lookups\MSOA_lookup", replace
-*import delimited "C:\Users\EIDEDGRI\Documents\GitHub\non-specific-immunity-research\output\input.csv", clear
-
 clear
 import delimited ./output/input.csv
 
@@ -131,7 +126,28 @@ summ n_rti, d
 summ n_rti if n_rti > 0, d
 drop n_rti
 
-ds *rti*, has(type float)
+* Negative tests at time of RTI
+
+ds *neg_*, has(type byte)
+egen n_neg_rti = rowtotal(`r(varlist)')
+summ n_neg_rti, d
+summ n_neg_rti if n_neg_rti > 0, d
+drop n_neg_rti
+
+foreach week in 0900 0907 0914 0921 0928 1005 1012 1019 1026 1102 1109 1116 1123 1130 {
+	
+	gen nrti_`week' = .
+	replace nrti_`week' = rti_`week' if neg_`week' == 1
+	
+}
+
+ds nrti*, has(type float)
+
+egen min_nrti = rowmin(`r(varlist)')	// Use first nRTI for now
+format %td min_nrti
+
+
+ds rti*, has(type float)
 
 egen min_rti = rowmin(`r(varlist)')	// Use first RTI for now
 format %td min_rti
@@ -809,6 +825,22 @@ label var rti_1116						"RTI: 10NOV - 16NOV"
 label var rti_1123						"RTI: 17NOV - 23NOV"
 label var rti_1130						"RTI: 24NOV - 30NOV"
 
+label var min_nrti						"First nRTI"
+label var nrti_0900						"nRTI: 09JUN - 31AUG"
+label var nrti_0907						"nnRTI: 01SEP - 07SEP"
+label var nrti_0914						"nRTI: 08SEP - 14SEP"
+label var nrti_0921						"nRTI: 15SEP - 21SEP"
+label var nrti_0928						"nRTI: 22SEP - 28SEP"
+label var nrti_1005						"nRTI: 29SEP - 05OCT"
+label var nrti_1012						"nRTI: 06OCT - 12OCT"
+label var nrti_1019						"nRTI: 13OCT - 19OCT"
+label var nrti_1026						"nRTI: 20OCT - 26OCT"
+label var nrti_1102						"nRTI: 27OCT - 02NOV"
+label var nrti_1109						"nRTI: 03NOV - 09NOV"
+label var nrti_1116						"nRTI: 10NOV - 16NOV"
+label var nrti_1123						"nRTI: 17NOV - 23NOV"
+label var nrti_1130						"nRTI: 24NOV - 30NOV"
+
 * Comorbidities
 label var chronic_respiratory_disease	"Respiratory disease (excl. asthma)"
 label var asthmacat						"Asthma, grouped by severity (OCS use)"
@@ -886,7 +918,7 @@ keep `r(varlist)'
 ***************
 
 sort patient_id
-label data "Viral competition 19-01-2021"
+label data "Viral competition: $S_DATE"
 
 save ./analysis/cr_analysis_dataset.dta, replace
 
