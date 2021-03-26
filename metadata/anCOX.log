@@ -2,22 +2,22 @@
 
 state: succeeded
 commit: none
-docker_image_id: sha256:e4a676ff497b1550742032051cce1ba5502f65b172e86e4d82aadbaa1e056935
+docker_image_id: sha256:5a4bb3ecd807de29a18a01ffae01739415778f0b770cbd43d7140bb0017306f1
+exit_code: 0
 job_id: fbcg5o3n4irtklq7
 run_by_user: EIDEDGRI
-created_at: 2021-01-20T00:02:25Z
-started_at: 2021-01-20T00:02:39Z
-completed_at: 2021-01-20T00:03:49Z
+created_at: 2021-03-26T10:55:57Z
+started_at: 2021-03-26T10:56:16Z
+completed_at: 2021-03-26T10:57:15Z
 
 Completed successfully
 
 outputs:
-  logs/an_cox_models.log              - moderately_sensitive
-  output/reg_utla_cox_haz.svg         - moderately_sensitive
-  output/unadj_utla_cox_haz.svg       - moderately_sensitive
-  output/unadj_utla_cox_week.svg      - moderately_sensitive
-  output/unadj_utla_cox_week_nl.svg   - moderately_sensitive
-  output/unadj_utla_sgss_haz.svg      - moderately_sensitive
-  output/unadj_utla_sgss_week.svg     - moderately_sensitive
-  output/unadj_utla_sgss_week_nl.svg  - moderately_sensitive
-  output/utla_haz.svg                 - moderately_sensitive
+  logs/an_cox_models.log         - moderately_sensitive
+  output/unadj_cox_month.svg     - moderately_sensitive
+  output/unadj_cox_week.svg      - moderately_sensitive
+  output/unadj_cox_week_nl.svg   - moderately_sensitive
+  output/unadj_sgss_month.svg    - moderately_sensitive
+  output/unadj_sgss_week.svg     - moderately_sensitive
+  output/unadj_sgss_week_nl.svg  - moderately_sensitive
+  output/utla_cox_month.svg      - moderately_sensitive
