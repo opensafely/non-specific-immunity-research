@@ -44,6 +44,9 @@ format %td first_rti first_nrti
 
 twoway (hist first_rti, freq color(red%30)) (hist first_nrti, freq color(green%30)), legend(off)
 
+graph export ./output/exposure_hist.svg, as(svg) replace
+
+
 * Administrative censor
 replace first_rti = date("01dec2099", "DMY") if first_rti == .
 replace first_nrti = date("01dec2099", "DMY") if first_nrti == .
@@ -107,7 +110,7 @@ graph export ./output/unadj_cox_haz.svg, name(unadj_cox) as(svg) replace
 
 * Months
 * RTI
-stcox ib1.exp_time, base strata(utla_group)
+stcox ib1.exp_time age1 age2 age3 male, base strata(utla_group)
 
 sts graph , haz by(exp_time) width(5 5 5 5 5)	///
 			xlabel(1 "01SEP" 31 "01OCT" 62 "01NOV" 91 "01DEC")	///
@@ -126,13 +129,13 @@ graph export ./output/utla_haz.svg, name(utla_haz) as(svg) replace
 */
 
 * nRTI
-stcox ib1.nexp_time, base strata(utla_group)
+stcox ib1.nexp_time age1 age2 age3 male, base strata(utla_group)
 
 
 
 * Weeks
 * RTI
-stcox ib1.exp_week, base strata(utla_group)
+stcox ib1.exp_week age1 age2 age3 male, base strata(utla_group)
 
 sts graph , haz by(exp_week) width(5 5 5 5 5 5 5 5 5 5 5 5 5 5)	///
 			xlabel(1 "01SEP" 31 "01OCT" 62 "01NOV" 91 "01DEC")	///
@@ -152,13 +155,13 @@ graph export ./output/unadj_cox_week_nl.svg, name(unadj_cox_week1) as(svg) repla
 
 
 * nRTI
-stcox ib1.nexp_week, base strata(utla_group)
+stcox ib1.nexp_week age1 age2 age3 male, base strata(utla_group)
 
 
 
 
 
-* With adjustment for region
+/* With adjustment for region
 
 encode utla_group, gen(utla_num)
 
@@ -171,7 +174,7 @@ sts graph , haz by(exp_time) width(5 5 5 5 5)	///
 			name(adj_utla_cox)
 			
 graph export ./output/utla_cox_month.svg, name(adj_utla_cox) as(svg) replace
-
+*/
 
 
 /* ========================================== */
@@ -203,7 +206,7 @@ graph export ./output/unadj_cox_haz.svg, name(unadj_cox) as(svg) replace
 * With regional stratification
 
 * Months
-stcox ib1.exp_time, base strata(utla_group)
+stcox ib1.exp_time age1 age2 age3 male, base strata(utla_group)
 
 sts graph , haz by(exp_time) width(5 5 5 5 5)	///
 			xlabel(1 "01SEP" 31 "01OCT" 62 "01NOV" 91 "01DEC")	///
@@ -214,7 +217,7 @@ graph export ./output/unadj_sgss_month.svg, name(unadj_sgss) as(svg) replace
 
 
 * Weeks
-stcox ib1.exp_week, base strata(utla_group)
+stcox ib1.exp_week age1 age2 age3 male, base strata(utla_group)
 
 sts graph , haz by(exp_week) width(5 5 5 5 5 5 5 5 5 5 5 5 5 5)	///
 			xlabel(1 "01SEP" 31 "01OCT" 62 "01NOV" 91 "01DEC")	///

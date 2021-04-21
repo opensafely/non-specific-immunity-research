@@ -53,9 +53,10 @@ actions:
 #        figure1: output/unadj_cox_haz.svg
         figure1: output/unadj_cox_month.svg
 #        figure2: output/utla_haz.svg
-        figure3: output/unadj_cox_week.svg
-        figure4: output/unadj_cox_week_nl.svg
-        figure5: output/utla_cox_month.svg
-        figure6: output/unadj_sgss_month.svg
-        figure7: output/unadj_sgss_week.svg
-        figure8: output/unadj_sgss_week_nl.svg
+        figure2: output/unadj_cox_week.svg
+        figure3: output/unadj_cox_week_nl.svg
+#        figure4: output/utla_cox_month.svg
+        figure4: output/unadj_sgss_month.svg
+        figure5: output/unadj_sgss_week.svg
+        figure6: output/unadj_sgss_week_nl.svg
+        figure7: output/exposure_hist.svg
