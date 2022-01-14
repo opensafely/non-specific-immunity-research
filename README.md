@@ -1,5 +1,7 @@
 # Viral competition and transient non-specific immunity to COVID-19
 
+This project is either no longer active or may be ongoing. Results in this repository MUST NOT be considered an accurate or valid representation of the study purpose. These data may reflect an incomplete or incorrect analysis with no further ongoing work. The repository content has ONLY been made public to support the OpenSAFELY open science and transparency principles and to support the sharing of re-usable code for other subsequent users. The results have not been peer-reviewed. No clinical, policy or safety conclusions must be drawn from any of the data here
+
 This is a study of non-specific immunity to COVID-19 due to viral competition resulting from non-COVID-19 respiratory infections.
 
 
